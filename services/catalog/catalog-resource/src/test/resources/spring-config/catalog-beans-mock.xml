@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+<bean id="catalogResource" class="com.nms.catalog.resources.CatalogResource">
+	<property name="catalogService" ref="catalogServiceImpl"></property>
+</bean> 
+
+<bean id="catalogServiceImpl" class="com.nms.catalog.service.impl.CatalogServiceImpl">
+	<property name="dbAccessor" ref="catalogDataAccessMockImpl"/>
+</bean>
+<bean id="catalogDataAccessMockImpl" class="com.nms.catalog.service.impl.CatalogDataAccessMockImpl"/>
+</beans>
+

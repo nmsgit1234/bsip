@@ -1,0 +1,4 @@
+-- Delete a service
+delete from property where property.property_id in (select property_id from service_properties where node_id=?);
+delete FROm service_properties where service_properties.node_id=?;
+delete FROM services where services.node_id=?;

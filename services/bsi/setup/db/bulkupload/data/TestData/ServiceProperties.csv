@@ -1,0 +1,5 @@
+PropertyID,PropertyName,PropertyDesc,Is_Mandatory,DisplayType,ValueType,TokenID_Ref2,DisplaySize,DataSize
+1,Which Grade?,For which grade you need tuition?,Y,TF,String,,50,50
+2,Instruction Medium,Instruction medium,Y,TF,String,,50,50
+3,Preferred time,Tuition timing,N,TF,String,,50,50
+4,Tuition type,Tuition type,N,DD,String,1,50,50

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<MenuConfig>
+
+  <Displayers>
+    <Displayer   name="DropDown"
+                 type="net.sf.navigator.displayer.DropDownMenuDisplayer"/>
+    <Displayer   name="Simple"
+                 type="net.sf.navigator.displayer.SimpleMenuDisplayer"/>
+    <Displayer   name="CoolMenu"
+                 type="net.sf.navigator.displayer.CoolMenuDisplayer"/>
+    <Displayer   name="CoolMenu4"
+                 type="net.sf.navigator.displayer.CoolMenuDisplayer4"/>
+    <Displayer   name="MenuForm"
+                 type="net.sf.navigator.example.PermissionsFormMenuDisplayer"/>
+    <Displayer   name="ListMenu"
+                 type="net.sf.navigator.displayer.ListMenuDisplayer"/>
+    <Displayer   name="TabbedMenu"
+                 type="net.sf.navigator.displayer.TabbedMenuDisplayer"/>
+    <Displayer   name="XtreeMenu"
+                 type="net.sf.navigator.displayer.XtreeMenuDisplayer"/>
+    <Displayer   name="CSSListMenu"
+                 type="net.sf.navigator.displayer.CSSListMenuDisplayer"/>
+  </Displayers>
+
+  <Menus>
+  	<Menu name="Home" title="Menu.home" location="Home.jsp" target="_parent"/>
+
+	<Menu  name="Profile"  title="Menu.profile">
+	 <Item  name="EditProfile"  title="Menu.profile.edit" location="GetPerson.do" target="display"/>
+	 <Item  name="ChangePasswd"  title="Menu.profile.change.passwd" location="Changepwd.do" target="display"/>
+	</Menu>
+  	
+
+	<Menu  name="ListAllPersons"  title="Menu.person.list" roles="GlobalAdministration" width="50">
+	 <Item  name="ListAllBuyers"  title="Menu.list.buyer" action="/ListPersons.do?personType=B" roles="GlobalAdministration" target="display"/>
+	 <Item  name="ListAllSuppliers"  title="Menu.list.supplier" action="/ListPersons.do?personType=S" roles="GlobalAdministration" target="display"/>
+	 <Item  name="SearchSupplier"  title="Menu.matching.suppliers" action="/ServicePersonSearch.do?Action_type=search&amp;personType=S" roles="GlobalAdministration" target="display"/>
+	 <Item  name="SearchBuyers"  title="Menu.matching.buyers" action="/ServicePersonSearch.do?Action_type=search&amp;personType=B" roles="GlobalAdministration" target="display"/>
+	</Menu>
+	
+	
+	<Menu  name="ServicesMenu"  title="Menu.services" roles="ViewServices,SupplierSubscribe,EditSupplierSubscribe,ViewMatchingBuyers,ViewMatchingSuppliers,BuyerSubscribe" width="50">
+	 <Item  name="BrowseService"  title="Menu.browse.services" location="TreeView.jsp" roles="ViewServices" target="display"/>
+	 <Item  name="SubscribeService"  title="Menu.subscribe.service" action="/SubscribeServiceDisplay.do?Action_type=create" roles="SupplierSubscribe,BuyerSubscribe" target="display"/>
+	 <Item  name="EditSubscribedService"  title="Menu.subscribe.service.edit" action="/ListSubscribedService.do" roles="EditSupplierSubscribe,EditBuyerSubscribe" target="display"/>
+	</Menu>
+	
+	<Menu  name="BuyerServiceMenu"  title="Menu.service.requestor" roles="BuyerSubscribe" width="50">
+	 <Item  name="BrowseService"  title="Menu.browse.services" location="TreeView.jsp" roles="BuyerSubscribe" target="display"/>
+	 <Item  name="RequestService"  title="Menu.request.service" action="/SubscribeServiceDisplay.do?Action_type=create&amp;personType=B" roles="BuyerSubscribe" target="display"/>
+	 <Item  name="EditRequestedService"  title="Menu.request.service.edit" action="/ListSubscribedService.do?personType=B" roles="BuyerSubscribe" target="display"/>
+	</Menu>
+	
+
+	<Menu  name="SupplierServiceMenu"  title="Menu.service.provider" roles="SupplierSubscribe" width="50">
+	 <Item  name="BrowseService"  title="Menu.browse.services" location="TreeView.jsp" roles="SupplierSubscribe" target="display"/>
+	 <Item  name="OfferService"  title="Menu.offer.service" action="/SubscribeServiceDisplay.do?Action_type=create&amp;personType=S" roles="SupplierSubscribe" target="display"/>
+	 <Item  name="EditOfferedService"  title="Menu.offer.service.edit" action="/ListSubscribedService.do?personType=S" roles="SupplierSubscribe" target="display"/>
+	</Menu>
+
+	<Menu  name="RegAdminSevicesMenu"  title="Menu.person.list" roles="GlobalAdministration" width="50">
+	 <Item  name="ListAllBuyers"  title="Menu.list.buyer" action="/ListPersons.do?personType=B" roles="GlobalAdministration" target="display"/>
+	 <Item  name="ListAllSuppliers"  title="Menu.list.supplier" action="/ListPersons.do?personType=S" roles="GlobalAdministration" target="display"/>
+	 <Item  name="SearchSupplier"  title="Menu.matching.suppliers" action="/SubscribeServiceDisplay.do?Action_type=search&amp;personType=S" roles="GlobalAdministration" target="display"/>
+	 <Item  name="SearchBuyers"  title="Menu.matching.buyers" action="/SubscribeServiceDisplay.do?Action_type=search&amp;personType=B" roles="GlobalAdministration" target="display"/>
+	</Menu>
+
+	<Menu  name="AdminSevicesMenu"  title="Menu.person.list" roles="GlobalAdministration" width="50">
+	 <Item  name="CreateSupplier"  title="Menu.create.supplier" action="/CreateSupplierDisplay.do?Action_type=create&amp;personType=A" roles="GlobalAdministration" target="display"/>
+	 <Item  name="ListAllBuyers"  title="Menu.list.buyer" action="/ListPersons.do?personType=B" roles="GlobalAdministration" target="display"/>
+	 <Item  name="ListAllSuppliers"  title="Menu.list.supplier" action="/ListPersons.do?personType=S" roles="GlobalAdministration" target="display"/>
+ 	 <Item  name="SearchSupplier"  title="Menu.matching.suppliers" action="/SubscribeServiceDisplay.do?Action_type=search&amp;personType=S" roles="GlobalAdministration" target="display"/>
+	 <Item  name="SearchSupplierByName"  title="Menu.matching.suppliers.byName" action="/DisplaySearchPersonByName.do?Action_type=search&amp;personType=S" roles="GlobalAdministration" target="display"/>
+	 <Item  name="SearchBuyers"  title="Menu.matching.buyers" action="/SubscribeServiceDisplay.do?Action_type=search&amp;personType=B" roles="GlobalAdministration" target="display"/>
+	 <Item  name="createToken"  title="Menu.create.token" action="/CreateTokenDisplay.do?Action_type=create" roles="GlobalAdministration" target="display"/>
+	 <Item  name="ListToken"  title="Menu.list.token" action="/ListObjects.do?entityName=Token" roles="GlobalAdministration" target="display"/>
+	 <Item  name="CreateService"  title="Menu.create.service" action="//CreateServiceDisplay.do" roles="GlobalAdministration" target="display"/>
+	</Menu>
+
+	<Menu  name="Logout" title="Menu.logout" action="/Logout.do" target="_parent"/>
+
+  </Menus>
+
+</MenuConfig>

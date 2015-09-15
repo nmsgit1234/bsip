@@ -1,0 +1,121 @@
+REGION_ID,NAME,AREA_CODE,IS_ROOT,HAS_CHILD,PARENT_REGION_ID
+1,All Countries,0,n,n,0
+2,Singapore,0,n,y,0
+3,All locations,0,y,n,2
+4,Bishan,460042,n,n,2
+5,Bukit Merah,460041,n,n,2
+6,Bukit Timah,460040,n,n,2
+7,Geylang,460039,n,n,2
+8,Kallang,460038,n,n,2
+9,Marine Parade,460037,n,n,2
+10,Novena       ,460036,n,n,2
+11,Queenstown,460035,n,n,2
+12,Tanglin,460034,n,n,2
+13,Toa Payoh,460033,n,n,2
+14,Marina East,460032,n,n,2
+15,Marina South,460031,n,n,2
+16,Museum,460030,n,n,2
+17,Newton,460029,n,n,2
+18,Orchard,460028,n,n,2
+19,Outram,460027,n,n,2
+20,Rochor,460026,n,n,2
+21,Straits View,460025,n,n,2
+22,Bedok,460024,n,n,2
+23,Changi,460023,n,n,2
+24,Changi Bay,460022,n,n,2
+25,Paya Lebar,460021,n,n,2
+26,Pasir Ris,460020,n,n,2
+27,Tampines,460019,n,n,2
+28,Lim Chu Kang,460018,n,n,2
+29,Mandai,460017,n,n,2
+30,Sembawang,460016,n,n,2
+31,Simpang,460015,n,n,2
+32,Sungei Kadut,460014,n,n,2
+33,Woodlands,460013,n,n,2
+34,Yishun,460012,n,n,2
+35,Ang Mo Kio,460011,n,n,2
+36,Hougang,460010,n,n,2
+37,Punggol,460009,n,n,2
+38,Seletar,460008,n,n,2
+39,Sengkang,460007,n,n,2
+40,Serangoon,460006,n,n,2
+41,Bukit Batok,460005,n,n,2
+42,Bukit Panjang,460004,n,n,2
+43,Boon Lay,460003,n,n,2
+44,Choa Chu Kang,460002,n,n,2
+45,Clementi,460001,n,n,2
+46,Jurong East,460000,n,n,2
+47,Jurong West,459999,n,n,2
+48,Pioneer,459998,n,n,2
+49,Tengah,459997,n,n,2
+50,Tuas,459996,n,n,2
+51,India,0,n,y,0
+52,Andhra Pradesh ,400,n,n,51
+53,Arunachal Pradesh ,401,n,n,51
+54,Assam ,402,n,n,51
+55,Bihar ,403,n,n,51
+56,Chhattisgarh ,404,n,n,51
+57,Goa ,405,n,n,51
+58,Gujarat ,406,n,n,51
+59,Haryana ,407,n,n,51
+60,Himachal Pradesh ,408,n,n,51
+61,Jammu and Kashmir ,409,n,n,51
+62,Jharkhand ,410,n,n,51
+63,Karnataka ,411,n,y,51
+64,Kerala ,412,n,n,51
+65,Madhya Pradesh ,413,n,n,51
+66,Maharashtra ,414,n,n,51
+67,Manipur ,415,n,n,51
+68,Meghalaya ,416,n,n,51
+69,Mizoram ,417,n,n,51
+70,Nagaland ,418,n,n,51
+71,Orissa ,419,n,n,51
+72,Punjab ,420,n,n,51
+73,Rajasthan ,421,n,n,51
+74,Sikkim ,422,n,n,51
+75,Tamil Nadu ,423,n,n,51
+76,Tripura ,424,n,n,51
+77,Uttar Pradesh ,425,n,n,51
+78,Uttarakhand ,426,n,n,51
+79,West Bengal  ,427,n,n,51
+80,Andaman and Nicobar Islands ,428,n,n,51
+81,Chandigarh ,429,n,n,51
+82,Dadra and Nagar Haveli ,430,n,n,51
+83,Daman and Diu ,431,n,n,51
+84,Lakshadweep ,432,n,n,51
+85,Delhi ,433,n,n,51
+86,Puducherry,434,n,n,51
+87,All locations,435,y,n,63
+88,Bagalkote ,436,n,n,63
+89,Bangalore Rural ,437,n,n,63
+90,Bangalore Urban ,438,n,n,63
+91,Belagavi ,439,n,n,63
+92,Bellary ,440,n,n,63
+93,Bidar ,441,n,n,63
+94,Bijapur ,442,n,n,63
+95,Chamarajanagar ,443,n,n,63
+96,Chikkamagaluru ,444,n,n,63
+97,Chitradurga ,445,n,n,63
+98,Dakshina Kannada ,446,n,n,63
+99,Davanagere ,447,n,n,63
+100,Dharwad ,448,n,n,63
+101,Gadag ,449,n,n,63
+102,Gulbarga ,450,n,n,63
+103,Hassan ,451,n,n,63
+104,Haveri ,452,n,n,63
+105,Kodagu ,453,n,n,63
+106,Kolar ,454,n,n,63
+107,Koppal ,455,n,n,63
+108,Mandya ,456,n,n,63
+109,Mysore ,457,n,n,63
+110,Raichur ,458,n,n,63
+111,Shimoga ,459,n,y,63
+112,Tumkur ,460,n,n,63
+113,Udupi ,461,n,n,63
+114,Uttara Kannada,462,n,n,63
+115,All locations,463,y,n,111
+116,Sagar,464,n,y,111
+117,Shralakoppa,465,n,n,111
+118,Theerthahalli,466,n,n,111
+119,Kargal,467,n,n,116
+120,JogFalls,468,n,n,116

@@ -1,0 +1,279 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<%@ page language="java" contentType="text/html; charset=utf-8" 
+    	 import="com.bsi.client.util.BSIConstants,
+    	 	 org.apache.struts.action.ActionErrors,
+    	 	 org.apache.struts.action.ActionMessages" %>
+<%@ taglib uri="http://struts.apache.org/tags-html" prefix="html" %>
+<%@ taglib uri="http://struts.apache.org/tags-bean" prefix="bean" %>
+<%@ taglib uri="http://struts.apache.org/tags-logic" prefix="logic" %>
+
+
+
+
+<html:html xhtml="true" lang="true">
+	<META HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE">
+	<META HTTP-EQUIV="EXPIRES" CONTENT="0">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title><bean:message key="Buyer.title"/></title>
+		<html:base/>
+	</head>
+	
+	<style type="text/css" media="all">
+	      @import url("css/bsi.css");
+	</style>
+
+	
+	<script language="Javascript" src="js/ajax.js"></script>
+	
+	<script language="Javascript" src="js/locations.js"></script>
+
+	<script language="JavaScript">
+	
+		function openSvsPopup(){
+			
+			var newwindow;
+			newwindow=window.open("TreeView.html",'services','height=300,width=300');
+			if (window.focus) {newwindow.focus()}
+
+		}
+		
+		/*
+		function loadProperties(){
+			//var index = document.forms["BuyerForm"].serviceIds.selectedIndex;
+			var selSrvs = document.forms["BuyerForm"].serviceIds.value;
+			alert("Selected service id is" + selSrvs);
+			var statusDiv=document.getElementById('progressbar');
+			var contentDiv=document.getElementById('properties');
+			sendHttpRequest('GetProperties.do','serviceId='+ selSrvs,statusDiv,contentDiv);
+		}
+		*/
+		
+
+	</script>
+	
+	<body>
+	
+	<logic:messagesPresent>
+		<font color="red">
+			<p>Following errors occured:</p>
+			<ul>
+			 <html:messages id="error" property="<%=ActionErrors.GLOBAL_MESSAGE%>" bundle="errormsgs"> 
+				 <strong><li><bean:write name="error"/></li><strong
+			 </html:messages> 
+			</ul> 
+		</font>	
+	</logic:messagesPresent>
+	
+
+	<logic:messagesPresent message="true">
+		 <html:messages id="msg" message="true" property="<%=ActionMessages.GLOBAL_MESSAGE%>"> 
+			 <bean:write name="msg"/>
+		 </html:messages> 
+	</logic:messagesPresent>
+
+	
+	<!-- --------------------- FOR CREATE PERSON ACTION -------------------------------------------------- -->   
+
+	<logic:equal name="<%= BSIConstants.ACTION_TYPE %>" value="<%= BSIConstants.CREATE %>" scope="request">
+	
+		<html:form action="/CreateBuyer" onsubmit="return validateBuyerForm(this);">
+			<input type="hidden" name="personType" value="buyer"/>
+			
+	<table width="70%" border="0" cellpadding="10" align=top cellpadding="0" cellspacing="0">
+		<tr>
+			<td>				
+		<fieldset>
+			 <legend><bean:message key="Buyer.details.legend"/></LEGEND>
+	
+			<table width="100%" border="0" align=top cellpadding="0" cellspacing="10">
+			  <tr>
+			    <td width="25%"><bean:message key="Buyer.name"/></td>
+			    <td width="75%">
+			      <html:text property="name" size="40" maxlength="50"/><font class="mandatory">*</font>
+			     </td>
+			  </tr>
+			  <tr>
+			    <td width="25%" valign=top ><bean:message key="Buyer.address"/></td>
+			    <td width="75%">
+			      <html:text property="address" size="40" maxlength="100"/><font class="mandatory">*</font>
+			  </td>
+			  </tr>
+			  <tr>
+			    <td width="25%"><bean:message key="Buyer.phoneNumber"/></td>
+			    <td width="75%">
+				<html:text property="phoneNumber" size="40" maxlength="50"/>
+			    </td>
+			  </tr>
+			  <tr>
+			    <td width="25%"><bean:message key="Buyer.email"/></td>
+			    <td width="75%">
+				<html:text property="email" size="40" maxlength="50"/><font class="mandatory">*</font>
+			    </td>
+			  </tr>
+			</table>
+		</fieldset>	
+			</td>
+		</tr>	
+			
+		<tr>
+			<td>
+		<fieldset>
+			 <legend>Tell us about your requirement</LEGEND>
+			<table width="100%" border="0" align=top cellpadding="0" cellspacing="10">
+			 <logic:present name="<%= BSIConstants.SERVICES_LIST %>">	  
+				  <tr>
+				    <td width="25%"><bean:message key="Buyer.serviceRequested"/></td>
+				    <td width="75%">
+					<input type="hidden" name="serviceIds" value=""/>
+					<html:text property="serviceIdName" size="40" readonly="true" maxlength="50"/>
+					<input type="button" value="Browse" onclick="javascript:openSvsPopup();">
+				    </td>
+				  </tr>
+		 	 </logic:present>
+		
+			 <%@ include file="include/Location.jsp" %>
+			<div id="properties">
+			</div>
+		       </table>	
+		</fieldset>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			<table width="100%" border="0" align=top cellpadding="0" cellspacing="10">
+				<div id="properties">
+				</div>
+		       </table>	
+		       </td>
+		</tr>       
+
+	</table>	
+		
+		
+	<table>
+	  <tr>
+	    <td width="25%">&nbsp;</td>
+	    <td width="75%">
+	      <html:submit><bean:message key="button.submit"/></html:submit>
+	      <html:reset/>
+	      <html:cancel/>
+	    </td>
+	  </tr>
+	</table>
+</html:form>
+
+</logic:equal>
+	
+
+	<!-- ------------------------------------------------------------------------------------------------- -->    
+
+	<!-- --------------------- FOR EDIT PERSON ACTION ---------------------------------------------------- -->    
+	
+	<logic:equal name="<%= BSIConstants.ACTION_TYPE %>" value="<%= BSIConstants.EDIT %>" scope="request">
+
+		<html:form action="/CreateBuyer" onsubmit="return validateBuyerForm(this);">
+			<table width=600 border="0" align=top cellpadding="0" cellspacing="0">
+			  <tr>
+			    <td width="25%"><bean:message key="Buyer.name"/></td>
+			    <td width="75%">
+			      <html:text property="name" size="40" maxlength="50"/>
+			     </td>
+			  </tr>
+			  <tr>
+			    <td width="25%" valign=top ><bean:message key="Buyer.address"/></td>
+			    <td width="75%">
+			      <html:text property="address" readonly="true" size="40" maxlength="50"/>
+			  </td>
+			  </tr>
+			  <tr>
+			    <td width="25%"><bean:message key="Buyer.phoneNumber"/></td>
+			    <td width="75%">
+				<html:text property="phoneNumber" size="40" maxlength="50"/>
+			    </td>
+			  </tr>
+			  <tr>
+			    <td width="25%"><bean:message key="Buyer.email"/></td>
+			    <td width="75%">
+				<html:text property="email" size="40" maxlength="50"/>
+			    </td>
+			  </tr>
+
+			 <logic:present name="<%= BSIConstants.SERVICES_LIST %>">	  
+				  <tr>
+				    <td width="25%"><bean:message key="Buyer.serviceRequested"/></td>
+				    <td width="75%">
+					<html:select multiple="true" size="3" property="serviceIds">
+					    <html:options collection="ServicesList" 
+					     		  property="nodeId"
+							  labelProperty="name"/>
+					</html:select>
+				    </td>
+				  </tr>
+		 	 </logic:present>
+		
+			 <%@ include file="include/Location.jsp" %>
+
+			  <tr>
+			    <td width="25%">&nbsp;</td>
+			    <td width="75%">
+			      <html:submit><bean:message key="button.submit"/></html:submit>
+			      <html:reset/>
+			      <html:cancel/>
+			    </td>
+			  </tr>
+			</table>
+		</html:form>
+	</logic:equal>	
+	
+	<!-- ------------------------------------------------------------------------------------------------- -->    
+
+	<!-- --------------------- FOR VIEW PERSON ACTION ---------------------------------------------------- -->    
+	
+	<logic:equal name="<%= BSIConstants.ACTION_TYPE %>" value="<%= BSIConstants.VIEW %>" scope="request">
+
+		<html:form action="/CreateBuyer" onsubmit="return validateBuyerForm(this);">
+			<table width=600 border="0" align=top cellpadding="0" cellspacing="0">
+			  <tr>
+			    <td width="25%"><bean:message key="Buyer.name"/></td>
+			    <td width="75%">
+			      <html:text property="name" readonly="true" size="40" maxlength="50"/>
+			     </td>
+			  </tr>
+			  <tr>
+			    <td width="25%" valign=top ><bean:message key="Buyer.address"/></td>
+			    <td width="75%">
+			      <html:text property="address" readonly="true" size="40" maxlength="50"/>
+			  </td>
+			  </tr>
+			  <tr>
+			    <td width="25%"><bean:message key="Buyer.phoneNumber"/></td>
+			    <td width="75%">
+				<html:text property="phoneNumber" readonly="true" size="40" maxlength="50"/>
+			    </td>
+			  </tr>
+			  <tr>
+			    <td width="25%"><bean:message key="Buyer.email"/></td>
+			    <td width="75%">
+				<html:text property="email" readonly="true" size="40" maxlength="50"/>
+			    </td>
+			  </tr>
+
+			</table>
+		</html:form>
+	</logic:equal>	
+
+	<!-- ------------------------------------------------------------------------------------------------- -->    
+
+	
+	<%@ include file="include/ProgressBar.jsp" %>
+	
+	<html:javascript formName="BuyerForm"
+			 dynamicJavascript="true"
+			 staticJavascript="false"/>
+
+	<script language="Javascript1.1" src="StaticJavascript.jsp"></script>		                 
+
+	</body>
+</html:html>
+	

@@ -1,0 +1,306 @@
+<?xml version="1.0"?>
+<project name="BSI" default="UploadSeedData" basedir=".">
+
+        <property file="build.properties"/>
+
+        <property name="build.classes" location="build/classes"/>
+        <property name="webapp.lib.dir" location="web/WEB-INF/lib"/>
+    	<property name="thirdparty.lib.dir" location="../ThirdParty/lib"/>
+	    <property name="java.src.dir" location="src/java"/>
+        <property name="webapp.xml" location="src/conf/web.xml"/>
+        <property name="war.file.loc" location="dist/bsi.war"/>
+        <property name="sample.src.dir" location="samples"/>
+	    <property name="persistence.src.dir" location="../Persistence/src"/>
+	    <property name="utility.src.dir" location="../Utilities/src"/>
+		<property name="struts.config.file.dir" location="src/conf"/>
+        <property name="bulk.db.mapping.dir" location="setup/db/bulkupload/mapping"/>
+        <property name="bulk.db.seed.data.dir" location="setup/db/bulkupload/data/SeedData"/>
+        <property name="bulk.db.test.data.dir" location="setup/db/bulkupload/data/TestData"/>
+        <property name="bulk.db.test.data.src.dir" location="setup/db/bulkupload/data/TestData/src"/>
+        <property name="test.src.dir" location="test"/>
+
+
+
+        <path id="project.class.path">
+                <fileset dir="web/WEB-INF/lib">
+                       <include name="**/*.jar"/>
+                       <include name="**/*.zip"/>
+                </fileset>
+                <fileset dir="${webapp.lib.dir}">
+                       <include name="**/*.jar"/>
+                       <include name="**/*.zip"/>
+                </fileset>
+	            <fileset dir="${utility.src.dir}">
+	                   <include name="**/*.java"/>
+	            </fileset>
+            <fileset dir="${persistence.src.dir}">
+                   <include name="**/*.java"/>
+            </fileset>
+        	<fileset dir="${thirdparty.lib.dir}">
+                   <include name="**/*.jar"/>
+                   <include name="**/*.zip"/>
+            </fileset>
+        	
+        	
+        </path>
+
+        <path id="hibernate.class.path">
+                <fileset dir="E:\Inst\hibernate-3.2\lib">
+                       <include name="**/*.jar"/>
+                       <include name="**/*.zip"/>
+                </fileset>
+        </path>
+	
+        <target name="Init">
+                <delete dir="build" />
+                <delete dir="dist" />
+                <mkdir dir="build/classes"/>
+                <mkdir dir="dist" />
+        </target>
+
+        <target name="CompileJavaClasses" depends="Init" description="Compiles the Java classes of BSI">
+                <echo> The build classes dir is ${build.classes}
+                </echo>
+            <javac srcdir="${utility.src.dir}" destdir="build/classes">
+                    <classpath refid="project.class.path"/>
+            </javac>
+            <javac srcdir="${persistence.src.dir}" destdir="build/classes">
+                    <classpath refid="project.class.path"/>
+            </javac>
+       	
+        	<javac srcdir="${java.src.dir}" destdir="build/classes">
+                        <classpath refid="project.class.path"/>
+                </javac>
+        		<echo level="info">
+                        Compilation of BSI Java classes complete!
+                </echo>
+        </target>
+
+
+        <target name="CompileTestClasses" description="Compiles the Test Java classes of BSI">
+                <javac srcdir="${test.src.dir}" destdir="build/classes">
+                        <classpath refid="project.class.path"/>
+                </javac>
+                <echo level="info">
+                        Compilation of BSI Test Java classes complete!
+                </echo>
+        </target>
+
+
+        <target name="CompileTestDataClasses" description="Compiles the Test data Java classes of BSI">
+                <javac srcdir="${bulk.db.test.data.src.dir}" destdir="build/classes">
+                        <classpath refid="project.class.path"/>
+                </javac>
+                <echo level="info">
+                        Compilation of BSI Test data Java classes complete!
+                </echo>
+        </target>
+
+
+
+
+	<target name="copy-resources" depends="CompileJavaClasses">
+		<copy todir="${build.classes}">
+			<fileset dir="${java.src.dir}">
+				<exclude name="**/*.java"/>
+				<exclude name="**/*.bak"/>
+			</fileset>
+		</copy>
+	</target>
+
+
+        <target name="Test">
+               <java classname="com.bsi.client.managers.BSITransactionMgr">
+                        <classpath refid="project.class.path"/>
+                        <classpath refid="hibernate.class.path"/>
+                        <classpath>
+                                <pathelement location="${build.classes}"/>
+                                <pathelement location="${derby.db.location}"/>
+                                <pathelement location="${struts.config.file.dir}"/>
+                        </classpath>
+               </java>
+        </target>
+
+
+
+        <target name="RunBSITests" depends="CompileTestClasses">
+               <java classname="junit.textui.TestRunner" fork="yes" output="BSITestResults.txt">
+               		<arg value="com.bsi.test.BSITestSuite"/>
+                        <classpath refid="project.class.path"/>
+                        <classpath refid="hibernate.class.path"/>
+                        <classpath>
+                                <pathelement location="${build.classes}"/>
+                                <pathelement location="${derby.db.location}"/>
+                                <pathelement location="${struts.config.file.dir}"/>
+                        </classpath>
+               </java>
+        </target>
+
+
+        <target name="CreateWar" depends="CompileJavaClasses,copy-resources">
+        	<copy file="${struts.config.file.dir}/struts-config.xml" todir="web/WEB-INF"/>
+        	<copy file="${struts.config.file.dir}/menu-config.xml" todir="web/WEB-INF"/>
+        	<copy file="${struts.config.file.dir}/pager-taglib.tld" todir="web/WEB-INF"/>
+        	<copy file="${struts.config.file.dir}/validation.xml" todir="web/WEB-INF"/>
+        	<copy file="${struts.config.file.dir}/log4j.properties" todir="build/classes"/>
+        	<copy file="${struts.config.file.dir}/hibernate.cfg.xml" todir="build/classes"/>
+        	<copy file="${struts.config.file.dir}/weblogic.xml" todir="web/WEB-INF"/>
+		<copy file="${struts.config.file.dir}/cache.ccf" todir="build/classes">
+			<filterset>
+				<filter token="JcsCacheDirPath" value="${jcs.disk.dir}"/>
+			</filterset>
+		</copy>
+
+
+                <war  destfile="${war.file.loc}" webxml="${webapp.xml}">
+                        <fileset dir="web">
+                                <exclude name="**/*.bak"/>
+                                <exclude name="UnUsed/*"/>
+                        </fileset>
+                        <classes dir="build/classes"/>
+                        <lib dir="lib"/>
+                </war>
+                <delete file="web/WEB-INF/struts-config.xml"/>
+                <delete file="web/WEB-INF/validation.xml"/>
+                <delete file="web/WEB-INF/menu-config.xml"/>
+                <delete file="web/WEB-INF/pager-taglib.tld"/>
+                <delete file="web/WEB-INF/log4j.properties"/>
+                <delete file="web/WEB-INF/hibernate.cfg.xml"/>
+                <delete file="web/WEB-INF/weblogic.xml"/>
+                <delete file="web/WEB-INF/cache.ccf"/>
+
+        </target>
+
+
+       <target name="UnZip">
+                <unwar src="${war.file.loc}" dest="dist"/>
+        </target>
+
+
+        <target name="DeployWar" depends="CreateWar">
+                <copy file="${war.file.loc}" todir="${war.deploy.location}"/>
+
+        </target>
+
+       <target name="BuildSamples" depends="Init" description="Compiles the sample Java classes">
+                <echo> The build classes dir is ${build.classes}
+                </echo>
+                <javac srcdir="${sample.src.dir}" destdir="build/classes">
+                        <classpath refid="project.class.path"/>
+                </javac>
+                <copy todir="${build.classes}">
+                  <fileset dir="${sample.src.dir}"
+                           includes="**/*.xml"
+                  />
+                </copy>
+
+                <echo level="info">
+                        Compilation of BSI Java classes complete!
+                </echo>
+        </target>
+
+<!-- Seed data -->
+
+
+        <target name="BulkLocations">
+               <java classname="com.nms.util.db.BulkDataUploader" fork="yes">
+                        <classpath refid="project.class.path"/>
+                        <classpath>
+                                <pathelement location="build/classes"/>
+                        </classpath>
+                        <sysproperty key="mapfile" value="${bulk.db.mapping.dir}/Regions.xml"/>
+			<sysproperty key="datafile" value="${bulk.db.seed.data.dir}/Regions.csv"/>
+                        <arg value="-h"/>
+               </java>
+        </target>
+
+        <target name="BulkServices">
+               <java classname="com.nms.util.db.BulkDataUploader" fork="yes">
+                        <classpath refid="project.class.path"/>
+                        <classpath>
+                                <pathelement location="build/classes"/>
+                        </classpath>
+                        <sysproperty key="mapfile" value="${bulk.db.mapping.dir}/Services.xml"/>
+			<sysproperty key="datafile" value="${bulk.db.seed.data.dir}/Services.csv"/>
+                        <arg value="-h"/>
+               </java>
+        </target>
+
+        <target name="BulkRoles">
+               <java classname="com.nms.util.db.BulkDataUploader" fork="yes">
+                        <classpath refid="project.class.path"/>
+                        <classpath>
+                                <pathelement location="build/classes"/>
+                        </classpath>
+                        <sysproperty key="mapfile" value="${bulk.db.mapping.dir}/Roles.xml"/>
+			<sysproperty key="datafile" value="${bulk.db.seed.data.dir}/Roles.csv"/>
+                        <arg value="-h"/>
+               </java>
+        </target>
+
+       <target name="UploadSeedData" depends="BulkLocations,BulkServices,BulkRoles">
+       </target>
+
+<!-- Test data -->
+
+
+        <target name="BuyerTestData" depends="CompileTestDataClasses">
+               <java classname="com.bsi.bulk.testdata.Buyer" fork="false">
+                        <classpath refid="project.class.path"/>
+                        <classpath refid="hibernate.class.path"/>
+                        <classpath>
+                                <pathelement location="${build.classes}"/>
+                                <pathelement location="${derby.db.location}"/>
+                                <pathelement location="${struts.config.file.dir}"/>
+                        </classpath>
+               </java>
+        </target>
+
+
+
+<!-- Related to WebService -->
+
+        <target name="WebServiceDeploy" >
+               <java classname="org.apache.axis.client.AdminClient">
+               		<arg value="-p7001"/>
+                        <arg value="-lhttp://localhost:7001/bsi/services/AdminService"/>
+			<arg value="bsi_ws_deploy.wsdd"/>
+                        <classpath refid="project.class.path"/>
+                        <classpath>
+                                <pathelement location="${build.classes}"/>
+                        </classpath>
+               </java>
+        </target>
+
+        <target name="WebServiceTest">
+               <java classname="com.bsi.external.ws.client.BSIWebServiceClient">
+                        <arg value="-lhttp://localhost:7001/bsi/services/BSIWebService"/>
+                        <classpath refid="project.class.path"/>
+                        <classpath>
+                                <pathelement location="${build.classes}"/>
+                        </classpath>
+               </java>
+        </target>
+
+        <target name="WebServiceMonitor" depends="MonitorServiceDeploy">
+               <java classname="com.bsi.external.ws.client.LocationWSClient">
+                        <arg value="-lhttp://localhost:7001/bsi/services/LocationWS"/>
+                        <classpath refid="project.class.path"/>
+                        <classpath>
+                                <pathelement location="${build.classes}"/>
+                        </classpath>
+               </java>
+        </target>
+
+        <target name="MonitorServiceDeploy">
+               <java classname="org.apache.axis.client.AdminClient">
+               		<arg value="-p7001"/>
+                        <arg value="-lhttp://localhost:7001/bsi/services/AdminService"/>
+			<arg value="soapMonitor_service_deploy.wsdd"/>
+                        <classpath refid="project.class.path"/>
+                        <classpath>
+                                <pathelement location="${build.classes}"/>
+                        </classpath>
+               </java>
+        </target>
+</project>

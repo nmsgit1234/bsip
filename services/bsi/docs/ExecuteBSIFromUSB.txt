@@ -1,0 +1,7 @@
+Changes needed to do the development with application on USB.
+
+1. While executing the eclipse IDE from the "inst/eclipse", change the workspace to point to the "<usb_drive>:/Project\NMS\apps"
+2. Modify "<usb_drive>:\Project\NMS\apps\BSI\setup\db\databases" and point to the correct installation of mysql server. 
+3. While starting the tomcat server, clean the server and start
+4. In eclipse make sure that the tomcat server points to the tomcat installation under "<usb_drive>:inst/Apache Tomcat" and also the JDK points to the usb jdk directory under "Inst" folder.
+5. The debug can be enabled on the tomcat server by following setting.

@@ -1,0 +1,564 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE struts-config PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+        "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+
+<struts-config>
+	<form-beans>
+
+
+		<!-- form-bean name="LocationForm" type="org.apache.struts.validator.DynaValidatorForm"> 
+			<form-property name="countryId" type="java.lang.String" /> <form-property 
+			name="stateId" type="java.lang.String" /> <form-property name="locationId" 
+			type="java.lang.String" /> </form-bean> <form-bean name="PersonForm" extends="LocationForm"> 
+			<form-property name="name" type="java.lang.String" /> <form-property name="email" 
+			type="java.lang.String" /> <form-property name="address" type="java.lang.String" 
+			/> <form-property name="phoneNumber" type="java.lang.String" /> <form-property 
+			name="personType" type="java.lang.String" /> <form-property name="serviceIds" 
+			type="java.lang.String[]" /> </form-bean -->
+
+
+		<form-bean name="TestForm1"
+			type="org.apache.struts.validator.DynaValidatorForm">
+			<form-property name="name" type="java.lang.String" />
+		</form-bean>
+
+		<form-bean name="TestForm2"
+			type="org.apache.struts.validator.DynaValidatorForm">
+			<form-property name="place" type="java.lang.String" />
+		</form-bean>
+
+
+		<form-bean name="LogonForm"
+			type="org.apache.struts.validator.DynaValidatorForm">
+			<form-property name="email" type="java.lang.String" />
+			<form-property name="password" type="java.lang.String" />
+		</form-bean>
+
+		<form-bean name="TestForm"
+			type="org.apache.struts.validator.DynaValidatorForm">
+			<form-property name="stateId" type="java.lang.String" />
+		</form-bean>
+
+
+		<form-bean name="LocationForm" type="com.bsi.client.actions.forms.LocationForm" />
+
+		<form-bean name="PersonForm" type="com.bsi.client.actions.forms.PersonForm" />
+
+		<form-bean name="BuyerForm" type="com.bsi.client.actions.forms.BuyerForm" />
+
+
+
+		<form-bean name="PropertiesValuesForm"
+			type="com.bsi.client.actions.forms.PropertiesValuesForm" />
+
+		<form-bean name="OACValuesForm"
+			type="org.apache.struts.validator.DynaValidatorForm">
+			<form-property name="id" type="java.lang.String" />
+			<form-property name="oacNumber" type="java.lang.String" />
+		</form-bean>
+
+		<form-bean name="OACValuesForm"
+			type="org.apache.struts.validator.DynaValidatorForm">
+			<form-property name="password" type="java.lang.String" />
+		</form-bean>
+
+
+		<form-bean name="PropertiesForm"
+			type="com.bsi.client.actions.forms.PropertiesForm" />
+
+		<form-bean name="SubscribeServiceForm"
+			type="com.bsi.client.actions.forms.SubscribeServiceForm" />
+
+		<form-bean name="PropertyForm" type="com.bsi.client.actions.forms.PropertyForm" />
+
+		<form-bean name="TokenForm"
+			type="org.apache.struts.validator.DynaValidatorForm">
+			<form-property name="tokenName" type="java.lang.String" />
+			<form-property name="tokenDesc" type="java.lang.String" />
+			<form-property name="tokenValuesSet" type="java.lang.String" />
+		</form-bean>
+
+		<form-bean name="ServiceForm"
+			type="org.apache.struts.validator.DynaValidatorForm">
+			<form-property name="prntNodeId" type="java.lang.String" />
+			<form-property name="name" type="java.lang.String" />
+			<form-property name="serviceIdName" type="java.lang.String" />
+			<form-property name="serviceId" type="java.lang.String" />
+			<form-property name="description" type="java.lang.String" />
+		</form-bean>
+	</form-beans>
+
+	<global-forwards>
+		<forward name="home" path="/Welcome.html" />
+		<forward name="rowspage" path="/Property.jsp" />
+
+	</global-forwards>
+
+
+	<action-mappings>
+
+		<action path="/TestAction1" type="com.bsi.client.actions.TestAction1"
+			parameter="create" cancellable="true" validate="false" name="TestForm1"
+			scope="request">
+			<forward name="success" path="/FormSubmitTest.jsp" />
+		</action>
+
+
+		<action path="/TestAction2" type="com.bsi.client.actions.TestAction2"
+			parameter="create" cancellable="true" validate="false" name="TestForm2"
+			scope="request">
+			<forward name="success" path="/FormSubmitTest.jsp" />
+		</action>
+
+		<action path="/TestForm" forward="/FormSubmitTest.jsp">
+		</action>
+
+
+		<action path="/Index" forward="/Welcome.html">
+		</action>
+
+		<action path="/Logon" forward="/Logon.jsp">
+		</action>
+
+		<action path="/SysProperties" forward="/MonitorSysProperties.jsp">
+		</action>
+
+
+		<action path="/ServicePersonSearch" forward="/ServicePersonSearch.jsp">
+		</action>
+
+		<action path="/SubmitLogon" type="com.bsi.client.actions.LogonAction"
+			parameter="login" cancellable="true" validate="true" name="LogonForm"
+			scope="request">
+			<forward name="success" path="/Home.jsp" />
+			<forward name="failure" path="/Logon.jsp" />
+		</action>
+
+
+		<action path="/ChangeLocale" type="com.bsi.client.actions.LogonAction"
+			parameter="changeLocale" cancellable="true" validate="false" name="LogonForm"
+			scope="request">
+			<forward name="success" path="/Home.jsp" />
+			<forward name="failure" path="/Logon.jsp" />
+		</action>
+
+		<action path="/Logout" type="com.bsi.client.actions.LogonAction"
+			parameter="logout" cancellable="true" validate="false" name="LogonForm"
+			scope="request">
+			<forward name="success" path="/Welcome.html" />
+		</action>
+
+
+
+
+
+
+
+		<!-- action path="/PersonAction" input="/Person.jsp" type="com.bsi.client.actions.PersonAction" 
+			name="PersonForm" scope="request"> <forward name="success" path="/Person.jsp?type={1}"/> 
+			</action -->
+
+
+		<!-- action path="/Create*" extends="/PersonAction" parameter="create" 
+			cancellable="true" validate="false"/ -->
+
+
+		<action path="/CreateBuyerDisplay" type="com.bsi.client.actions.BuyerAction"
+			parameter="create" cancellable="true" validate="false" name="BuyerForm"
+			scope="request">
+			<forward name="success" path="/Buyer.jsp" />
+		</action>
+
+		<action path="/CreateBuyer" type="com.bsi.client.actions.BuyerAction"
+			name="BuyerForm" parameter="add" scope="request" input="/Buyer.jsp"
+			cancellable="true" validate="true">
+			<forward name="success" path="/SuccessMessage.jsp" />
+			<forward name="alreadyRegistered" path="/SubmitLogon.do" />
+			<forward name="failure" path="/Buyer.jsp" />
+		</action>
+
+
+		<action path="/ViewBuyer" type="com.bsi.client.actions.BuyerAction"
+			parameter="personInfo" cancellable="true" validate="false" name="BuyerForm"
+			scope="request">
+			<forward name="success" path="/Buyer.jsp" />
+		</action>
+
+		<!-- action path="/CreateSupplierDisplay" forward="/Supplier.jsp?Action_type=create"> 
+			</action -->
+
+		<action path="/CreateSupplierDisplay" type="com.bsi.client.actions.BuyerAction"
+			parameter="create" cancellable="true" validate="false" name="PersonForm"
+			scope="request">
+			<forward name="success" path="/Supplier.jsp" />
+		</action>
+
+		<!-- action path="/CreateSupplier" type="com.bsi.client.actions.PersonAction" 
+			name="PersonForm" parameter="createPerson" scope="request" input="/Supplier.jsp" 
+			cancellable="true" validate="true"> <forward name="success" path="/SuccessMessage.jsp"/> 
+			</action -->
+
+
+		<!-- <action path="/CreateSupplier" type="com.bsi.client.actions.OACAction" 
+			name="PersonForm" parameter="generateOAC" scope="session" input="/Supplier.jsp" 
+			cancellable="true" validate="true"> <forward name="createObject" path="/CreatePerson.do"/> 
+			</action> -->
+		<action path="/CreateSupplier" type="com.bsi.client.actions.OACAction"
+			name="PersonForm" parameter="generateOAC" scope="session" input="/Supplier.jsp"
+			cancellable="true" validate="true">
+			<forward name="createObject" path="/CreatePerson.do" />
+		</action>
+
+		<action path="/CreatePerson" type="com.bsi.client.actions.PersonAction"
+			name="PersonForm" parameter="createPerson" scope="session" input="/Supplier.jsp"
+			cancellable="true" validate="true">
+			<forward name="success" path="/SuccessMessage.jsp" />
+			<!-- Enable this for sending oac by SMS -->
+			<!-- <forward name="success" path="/SendOAC.do"/> -->
+			<!-- Enable this for sending oac by Email -->
+			<!-- <forward name="success" path="/SendOACByEmail.do"/> -->
+		</action>
+
+
+		<action path="/SendOAC" type="com.bsi.client.actions.OACAction"
+			parameter="sendOAC" scope="session" cancellable="true" validate="false">
+			<forward name="success" path="/OACAuthentication.jsp" />
+			<forward name="failure" path="/Supplier.jsp" />
+		</action>
+
+		<action path="/SendOACByEmail" type="com.bsi.client.actions.OACAction"
+			parameter="sendOACByEmail" scope="session" cancellable="true"
+			validate="false">
+			<forward name="success" path="/SuccessMessage.jsp" />
+			<forward name="failure" path="/Supplier.jsp" />
+		</action>
+
+
+
+		<action path="/ConfirmOAC" type="com.bsi.client.actions.ObjectActions"
+			name="OACValuesForm" parameter="confirmObject" scope="session"
+			cancellable="true" validate="false">
+			<forward name="success" path="/PrepareForOACStatusUpdate.do" />
+			<forward name="failure" path="/OACAuthentication.jsp" />
+		</action>
+
+		<action path="/PrepareForOACStatusUpdate" type="com.bsi.client.actions.OACAction"
+			name="OACValuesForm" parameter="prepareForOACUpdate" scope="session"
+			cancellable="true" validate="false">
+			<forward name="success" path="/UpdateOACStatus.do" />
+			<forward name="failure" path="/OACAuthentication.jsp" />
+		</action>
+
+		<action path="/UpdateOACStatus" type="com.bsi.client.actions.ObjectActions"
+			name="OACValuesForm" parameter="updateObject" scope="session"
+			cancellable="true" validate="false">
+			<forward name="success" path="/Logon.do" />
+			<forward name="failure" path="/OACAuthentication.jsp" />
+		</action>
+
+
+		<action path="/ChangePassword" type="com.bsi.client.actions.ObjectActions"
+			name="OACValuesForm" parameter="updateObject" scope="session"
+			cancellable="true" validate="false">
+			<forward name="success" path="/Logon.do" />
+			<forward name="failure" path="/OACAuthentication.jsp" />
+		</action>
+
+
+		<action path="/CreateRegionalAdminDisplay" forward="/RegionalAdmin.jsp">
+		</action>
+
+		<action path="/DisplaySearchPersonByName" forward="/SearchPersonByName.jsp">
+		</action>
+
+		<action path="/SearchPersonByName" type="com.bsi.client.actions.ObjectActions"
+			name="PersonForm" parameter="SearchObject" scope="session"
+			cancellable="true" validate="false">
+			<forward name="success" path="/ListPersons.jsp" />
+		</action>
+
+
+
+
+		<action path="/ListMatchingBuyers" type="com.bsi.client.actions.SupplierAction"
+			parameter="listBuyerProperties" scope="request" cancellable="true"
+			validate="true">
+			<forward name="success" path="/ListMatchingBuyers.jsp" />
+		</action>
+
+		<action path="/ListPersonsForService" type="com.bsi.client.actions.PersonAction"
+			parameter="listPersonsMatchingServiceProperties" scope="request"
+			name="SubscribeServiceForm" cancellable="true" validate="true">
+			<forward name="success" path="/ListPersons.jsp" />
+		</action>
+
+		<action path="/ListBuyersForService" type="com.bsi.client.actions.PersonAction"
+			parameter="listBuyersForService" scope="session" name="SubscribeServiceForm"
+			cancellable="true" validate="true">
+			<forward name="success" path="/ListPersons.jsp" />
+		</action>
+
+
+		<action path="/SubscribeServiceDisplay" type="com.bsi.client.actions.PersonAction"
+			parameter="subSrvsDisplay" cancellable="true" validate="false"
+			name="SubscribeServiceForm" scope="request">
+			<forward name="success" path="/SubscribeService.jsp" />
+		</action>
+
+		<action path="/SubscribeService" type="com.bsi.client.actions.PersonAction"
+			parameter="subscribeSrvs" cancellable="true" validate="false"
+			name="SubscribeServiceForm" scope="request">
+			<forward name="success" path="/SuccessMessage.jsp" />
+		</action>
+
+		<action path="/UnSubscribeService" type="com.bsi.client.actions.PersonAction"
+			parameter="unSubscribeSrvs" cancellable="true" validate="false"
+			name="SubscribeServiceForm" scope="request">
+			<forward name="success" path="/SuccessMessage.jsp" />
+		</action>
+
+
+		<action path="/ListSubscribedService" type="com.bsi.client.actions.PersonAction"
+			parameter="listSubscribedServices" cancellable="true" validate="false"
+			name="SubscribeServiceForm" scope="request">
+			<forward name="success" path="/ListSubscribedService.jsp" />
+		</action>
+
+		<action path="/EditSrvsLocationDisplay" type="com.bsi.client.actions.PersonAction"
+			parameter="editSubServiceLocation" cancellable="true" validate="false"
+			name="SubscribeServiceForm" scope="request">
+			<forward name="success" path="/SubscribeService.jsp" />
+		</action>
+
+
+		<action path="/ListPersons" type="com.bsi.client.actions.PersonAction"
+			scope="request" parameter="list" cancellable="true" validate="false">
+			<forward name="success" path="/ListPersons.jsp" />
+		</action>
+
+
+		<!-- action path="/CreateSupplier" type="com.bsi.client.actions.PersonAction" 
+			name="PersonForm" parameter="create" scope="request" input="/Person.jsp" 
+			cancellable="true" validate="false"> <forward name="success" path="/Person.jsp"/> 
+			</action -->
+
+
+		<!-- action path="/AddSupplier" type="com.bsi.client.actions.PersonAction" 
+			name="PersonForm" parameter="add" scope="request" input="/Person.jsp" cancellable="true" 
+			validate="true"> <forward name="success" path="/Person.jsp?type=Supplier"/> 
+			<action -->
+
+
+
+		<!-- action path="/EditSupplier" type="com.bsi.client.actions.PersonAction" 
+			name="PersonForm" scope="request" input="/Person.jsp" parameter="edit" cancellable="true" 
+			validate="false"> <forward name="success" path="/Person.jsp"/> </action -->
+
+		<!-- action path="/GetBuyer" type="com.bsi.client.actions.PersonAction" 
+			name="PersonForm" scope="request" input="/Buyer.jsp" parameter="getPersonInfo" 
+			cancellable="true" validate="false"> <forward name="success" path="/Buyer.jsp"/> 
+			</action> <action path="/GetSupplier" type="com.bsi.client.actions.PersonAction" 
+			name="PersonForm" scope="request" input="/Supplier.jsp" parameter="getPersonInfo" 
+			cancellable="true" validate="false"> <forward name="success" path="/Supplier.jsp"/> 
+			</action -->
+
+		<action path="/GetPerson" type="com.bsi.client.actions.PersonAction"
+			name="PersonForm" scope="request" parameter="getPersonInfo"
+			cancellable="true" validate="false">
+			<forward name="Buyer" path="/Buyer.jsp" />
+			<forward name="Supplier" path="/Supplier.jsp" />
+		</action>
+
+		<action path="/DeletePerson" type="com.bsi.client.actions.PersonAction"
+			name="PersonForm" scope="request" parameter="delete" cancellable="true"
+			validate="false">
+			<forward name="Buyer" path="/SuccessMessage.jsp" />
+		</action>
+
+
+
+		<action path="/UpdatePersonInfo*" type="com.bsi.client.actions.PersonAction"
+			name="PersonForm" scope="request" input="/{1}.jsp" parameter="updatePersonInfo"
+			cancellable="true" validate="false">
+			<forward name="success" path="/{1}.jsp" />
+		</action>
+
+		<!-- action path="/PersonAction" input="/Person.jsp" type="com.bsi.client.actions.PersonAction" 
+			name="PersonForm" scope="request"> <forward name="success" path="/Person.jsp?type={1}"/> 
+			</action -->
+
+
+		<!-- action path="/ListSuppliers" type="com.bsi.client.actions.PersonAction" 
+			scope="session" parameter="list" cancellable="true" validate="false"> <forward 
+			name="success" path="/ListSuppliers.jsp"/> </action -->
+
+
+		<!-- action path="/ListPersons" extends="/ListSuppliers" parameter="list" 
+			cancellable="true" validate="false"/ -->
+
+		<action path="/ListCountries" type="com.bsi.client.actions.LocatorAction"
+			scope="request" cancellable="true" parameter="getCountries" validate="false">
+			<forward name="success" path="/Person.jsp" />
+		</action>
+
+
+		<action path="/ServerSort" type="com.bsi.reuse.client.actions.ServerSortAction"
+			validate="false">
+			<forward name="success" path="/TestList.jsp" />
+		</action>
+
+
+		<action path="/TestList" type="com.bsi.client.actions.PersonAction"
+			scope="session" parameter="list" cancellable="true" validate="false">
+			<forward name="success" path="/ServerSort.do" />
+		</action>
+
+
+		<action path="/ListAvailableServices" type="com.bsi.client.actions.ServicesAction"
+			scope="request" cancellable="true" parameter="list" validate="false">
+			<forward name="success" path="/Person.jsp" />
+		</action>
+
+
+		<action path="/TestService" type="com.bsi.client.actions.ServicesAction">
+		</action>
+
+		<action path="/Test1" name="PersonForm" scope="request" input="/Person.jsp"
+			cancellable="true" forward="/TestService">
+		</action>
+
+		<action path="/GetRegionNames" type="com.bsi.client.actions.LocatorAction"
+			scope="request" name="TestForm" parameter="getRegionNames"
+			cancellable="true" validate="false">
+			<forward name="success" path="/LocationOptions.jsp" />
+		</action>
+
+		<action path="/GetStates" type="com.bsi.client.actions.LocatorAction"
+			scope="request" parameter="getStates" cancellable="true" validate="false">
+		</action>
+
+		<action path="/GetLocations" type="com.bsi.client.actions.LocatorAction"
+			scope="request" parameter="getLocations" cancellable="true" validate="false">
+		</action>
+
+
+		<action path="/GetTree" type="com.bsi.client.actions.TreeBrowsing"
+			scope="request" cancellable="true" validate="false">
+		</action>
+
+		<action path="/CreateToken" type="com.bsi.client.actions.ObjectActions"
+			parameter="createObject" scope="request" cancellable="true" name="TokenForm"
+			validate="false">
+			<forward name="success" path="/SuccessMessage.jsp" />
+			<forward name="failure" path="/CreateToken.jsp" />
+		</action>
+
+		<action path="/CreateTokenDisplay" type="com.bsi.client.actions.ObjectActions"
+			parameter="displayCreateObject" scope="request" cancellable="true" validate="false">
+			<forward name="success" path="/CreateToken.jsp" />
+		</action>
+		
+		<action path="/DisplayTokenValues" type="com.bsi.client.actions.ObjectActions"
+			parameter="SearchObject" scope="request" cancellable="true"
+			name="TokenForm" validate="false">
+			<forward name="success" path="/UpdateTokenValues.jsp" />
+		</action>
+
+		<action path="/CreateService" type="com.bsi.client.actions.ObjectActions"
+			parameter="createObject" scope="request" cancellable="true" name="ServiceForm"
+			validate="false">
+			<forward name="success" path="/SuccessMessage.jsp" />
+			<forward name="failure" path="/CreateService.jsp" />
+		</action>
+
+		<action path="/CreateServiceDisplay" type="com.bsi.client.actions.ObjectActions"
+			parameter="displayCreateObject" scope="request" cancellable="true"
+			name="TokenForm" validate="false">
+			<forward name="success" path="/CreateService.jsp" />
+		</action>
+
+
+		<action path="/ListObjects" type="com.bsi.client.actions.ObjectActions"
+			scope="request" parameter="list" cancellable="true" validate="false">
+			<forward name="success" path="/ListTokens.jsp" />
+		</action>
+
+		<!-- action path="/CreateTokenDisplay" forward="/CreateToken.jsp"> </action -->
+
+
+
+		<action path="/GetProperties" type="com.bsi.client.actions.ServicesAction"
+			scope="request" parameter="getProperties" cancellable="true"
+			validate="false">
+			<forward name="success" path="/GetPropertiesXML1.do" />
+		</action>
+
+		<action path="/GetPropertiesXML1" type="com.bsi.client.actions.ServicesAction"
+			scope="request" parameter="getPropertiesXML1" cancellable="true"
+			validate="false">
+		</action>
+
+		<!-- This is for getting the parent properties to display while creating 
+			the service -->
+		<action path="/GetParentProperties" type="com.bsi.client.actions.ServicesAction"
+			scope="request" parameter="getProperties" cancellable="true"
+			validate="false">
+			<forward name="success" path="/GetPropertiesXML2.do" />
+		</action>
+
+		<action path="/GetPropertiesXML2" type="com.bsi.client.actions.ServicesAction"
+			scope="request" parameter="getPropertiesXML2" cancellable="true"
+			validate="false">
+		</action>
+
+		<action path="/GetSupplierProperties" type="com.bsi.client.actions.ServicesAction"
+			scope="request" parameter="getProperties" cancellable="true"
+			validate="false">
+			<forward name="success" path="/GetSupplierPropertiesXML.do" />
+		</action>
+
+		<action path="/GetSupplierPropertiesXML" type="com.bsi.client.actions.ServicesAction"
+			scope="request" parameter="getSupplierPropertiesXML" cancellable="true"
+			validate="false">
+		</action>
+
+		<action path="/CreateProperty" type="com.bsi.client.actions.ServicesAction"
+			name="PropertiesForm" scope="request" parameter="add" cancellable="true"
+			validate="false">
+			<forward name="success" path="/Property.jsp" />
+		</action>
+
+		<action path="/AddProperty" type="com.bsi.client.actions.ServicesAction"
+			name="PropertiesForm" scope="request" parameter="save" cancellable="true"
+			validate="false">
+			<forward name="success" path="/Property.jsp" />
+		</action>
+
+
+
+
+		<!-- action path="/AddProperty" type="com.bsi.client.actions.ServicesAction" 
+			name="PropertiesForm" scope="request" parameter="save" cancellable="true" 
+			validate="false"> <forward name="success" path="/Property.jsp"/> </action -->
+
+	</action-mappings>
+
+	<message-resources parameter="com.bsi.client.messages.ApplicationResources" />
+
+	<message-resources key="errormsgs"
+		parameter="com.bsi.server.messages.BSIServerMessages" />
+
+	<plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+		<set-property property="pathnames"
+			value="/org/apache/struts/validator/validator-rules.xml,
+				     /WEB-INF/validation.xml" />
+	</plug-in>
+
+	<!-- ========== Plug Ins Configuration ================================== -->
+
+	<plug-in className="net.sf.navigator.menu.MenuPlugIn">
+		<set-property property="menuConfig" value="/WEB-INF/menu-config.xml" />
+	</plug-in>
+
+</struts-config>

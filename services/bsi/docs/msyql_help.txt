@@ -1,0 +1,12 @@
+mysql -u root
+
+mysql> select User from mysql.user;
+
+mysql> grant all privileges on *.* to 'nshaikh1'@'localhost' identified by 'nshaikh1' with grant option;
+
+mysql> grant all privileges on *.* to 'nshaikh1'@'%' identified by 'nshaikh1' with grant option;
+
+mysql> load data local infile 'Regions.csv' into table test2_regions fields term
+inated by ',';
+
+insert into regions (region_id,name,areacode,is_root,has_child) value (0,'root',0,'n','n');

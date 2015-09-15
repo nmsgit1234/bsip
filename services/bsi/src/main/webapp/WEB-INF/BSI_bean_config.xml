@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+	<bean id="personMgr" class="com.bsi.client.managers.PersonManager">
+		<property name="dbAccessor" ref="hibernateImpl" />
+	</bean>
+	<bean id="bsiIxnMgr" class="com.bsi.client.managers.BSITransactionMgr">
+		<property name="dbAccessor" ref="hibernateImpl" />
+	</bean>
+	<bean id="personSrvsMgr" class="com.bsi.client.managers.PersonSrvsRegionManager">
+		<property name="dbAccessor" ref="hibernateImpl" />
+	</bean>
+	<bean id="objectMgr" class="com.bsi.client.managers.ObjectManager">
+		<property name="dbAccessor" ref="hibernateImpl" />
+	</bean>
+
+	<bean id="regionMgr" class="com.bsi.client.managers.RegionManager">
+		<property name="dbAccessor" ref="hibernateImpl" />
+	</bean>
+<!-- 	<bean id="serviceMgr" class="com.bsi.client.managers.ServiceManager">
+		<property name="dbAccessor" ref="hibernateImpl" />
+	</bean>
+ -->
+ 	<bean id="hibernateImpl" class="com.nms.db.DataAccessHibernateImpl">
+		<property name="sessionFactory" ref="mySessionFactory" />
+	</bean>
+ 	<bean id="hibernateUtil" class="com.nms.util.db.HibernateUtil">
+		<property name="sessionFactory" ref="mySessionFactory" />
+	</bean>
+	
+	<bean id="oacAction" class="com.bsi.client.actions.OACAction">
+		<property name="smsManager" ref="smsHandler" />
+		<property name="emailManager" ref="emailManager" />
+	</bean>
+	
+	<bean id="connectionMgr" class="com.nms.util.db.ConnectionManager">
+		<property name="dataSource" ref="myDataSource" />
+	</bean>
+	<bean id="smsHandler" class="com.nms.util.comm.sms.SerialPortSMSHandler" />
+	<bean id="emailManager" class="com.nms.util.comm.EmailClient" />
+</beans>

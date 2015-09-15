@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jaxrs="http://cxf.apache.org/jaxrs"
+	xmlns:jaxws="http://cxf.apache.org/jaxws" xmlns:cxf="http://cxf.apache.org/core"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:http="http://cxf.apache.org/transports/http/configuration"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="
+    http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+    http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd
+    http://cxf.apache.org/core http://cxf.apache.org/schemas/core.xsd
+    http://cxf.apache.org/jaxrs http://cxf.apache.org/schemas/jaxrs.xsd
+    http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd
+    http://cxf.apache.org/transports/http/configuration http://cxf.apache.org/schemas/configuration/http-conf.xsd
+    http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+
+	<context:annotation-config />
+
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
+		destroy-method="close">
+		<property name="driverClass" value="org.h2.Driver" />
+		<property name="jdbcUrl" value="jdbc:h2:tcp://localhost/activiti;MVCC=false" />
+		<property name="user" value="sa" />
+		<property name="password" value="" />
+
+		<!-- these are C3P0 properties -->
+		<property name="acquireIncrement" value="5" />
+		<property name="minPoolSize" value="5" />
+		<property name="maxPoolSize" value="100" />
+		<property name="maxIdleTime" value="0" />
+		<property name="maxStatements" value="0" />
+	</bean>
+
+	<bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<bean id="processEngineConfiguration" class="org.activiti.spring.SpringProcessEngineConfiguration">
+		<property name="dataSource" ref="dataSource" />
+		<property name="transactionManager" ref="transactionManager" />
+		<property name="databaseSchemaUpdate" value="true" />
+		<property name="jobExecutorActivate" value="false" />
+		<!-- <property name="deploymentResources" value="classpath*:/com/tsa/bpm/process/FinancialReportProcess.bpmn20.xml" 
+			/> -->
+	</bean>
+
+	<bean id="processEngine" class="org.activiti.spring.ProcessEngineFactoryBean">
+		<property name="processEngineConfiguration" ref="processEngineConfiguration" />
+	</bean>
+
+	<bean id="repositoryService" factory-bean="processEngine"
+		factory-method="getRepositoryService" />
+	<bean id="runtimeService" factory-bean="processEngine"
+		factory-method="getRuntimeService" />
+	<bean id="taskService" factory-bean="processEngine"
+		factory-method="getTaskService" />
+	<bean id="historyService" factory-bean="processEngine"
+		factory-method="getHistoryService" />
+	<bean id="managementService" factory-bean="processEngine"
+		factory-method="getManagementService" />
+
+
+	<jaxrs:server id="rest-services" address="/rest/">
+		<jaxrs:serviceBeans>
+			<ref bean="workkFlowWS"/>
+		</jaxrs:serviceBeans>
+		<jaxrs:extensionMappings>
+			<entry key="json" value="application/json" />
+			<entry key="xml" value="application/xml" />
+		</jaxrs:extensionMappings>
+	</jaxrs:server>
+
+
+<!--
+	<jaxrs:server id="abstract-rest-service" abstract="true"
+		address="/rest/" />
+ 	<bean id="rest-services" class="org.apache.cxf.jaxrs.JAXRSServerFactoryBean"
+		init-method="create" parent="abstract-rest-service">
+		<property name="address" value="/rest/" />
+		<property name="serviceBeans">
+			<ref bean="workkFlowWS" />
+		</property>
+	</bean>
+ --><!-- 	<util:list id="service-beans">
+		<ref local="workkFlowWS" />
+	</util:list>
+ -->
+
+	<bean id="workflowMgr" class="com.nms.workflow.activiti.ActivitiWorkflowManager">
+		<constructor-arg>
+			<ref local="processEngine" />
+		</constructor-arg>
+	</bean>
+
+	<bean id="workkFlowWS" class="com.nms.workflow.main.WorkflowMainWebServiceImpl">
+		<constructor-arg>
+			<ref local="workflowMgr" />
+		</constructor-arg>
+	</bean>
+ 
+	<bean id="workkFlowMain" class="com.nms.workflow.main.WorkflowMainAppImpl">
+		<property name="workflowMgr" ref="workflowMgr" />
+	</bean>
+
+</beans>

@@ -1,0 +1,14 @@
+1. Starting the server
+	mysqld --console
+
+2. Connecting to the server
+	mysqlshow
+
+3. To see the db's as root
+	mysqlshow -u root
+
+4. Create database
+mysql> CREATE DATABASE menagerie;
+
+
+

@@ -1,0 +1,4 @@
+Creating a database in Network server mode
+==========================================
+
+ij> connect 'jdbc:derby://localhost:1527/bsidb;create=true;tracefile=trace.out;user=nshaikh;password=nshaikh';

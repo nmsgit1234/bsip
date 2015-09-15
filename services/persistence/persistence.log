@@ -1,0 +1,524 @@
+28 Oct 2014 08:55:46,263 - com.nms.db.DataAccessHibernateImpl - The key value pairs are : key :property_id, value :50
+28 Oct 2014 08:55:46,264 - com.nms.db.DataAccessHibernateImpl - The key value pairs are : key :property_value, value :Value_0
+28 Oct 2014 08:55:46,265 - com.nms.db.DataAccessHibernateImpl - The key value pairs are : key :property_id, value :55
+28 Oct 2014 08:55:46,265 - com.nms.db.DataAccessHibernateImpl - The key value pairs are : key :property_value, value :Value_5
+28 Oct 2014 08:55:46,265 - com.nms.db.DataAccessHibernateImpl - The key value pairs are : key :property_id, value :54
+28 Oct 2014 08:55:46,265 - com.nms.db.DataAccessHibernateImpl - The key value pairs are : key :property_value, value :Value_4
+28 Oct 2014 08:55:46,265 - com.nms.db.DataAccessHibernateImpl - The key value pairs are : key :property_id, value :52
+28 Oct 2014 08:55:46,265 - com.nms.db.DataAccessHibernateImpl - The key value pairs are : key :property_value, value :Value_2
+28 Oct 2014 08:55:46,265 - com.nms.db.DataAccessHibernateImpl - The key value pairs are : key :property_id, value :53
+28 Oct 2014 08:55:46,266 - com.nms.db.DataAccessHibernateImpl - The key value pairs are : key :property_value, value :Value_3
+28 Oct 2014 08:55:46,266 - com.nms.db.DataAccessHibernateImpl - The key value pairs are : key :property_id, value :51
+28 Oct 2014 08:55:46,266 - com.nms.db.DataAccessHibernateImpl - The key value pairs are : key :property_value, value :Value_1
+28 Oct 2014 09:05:36,714 - com.nms.db.DataAccessHibernateImpl - In DataAccessHibernateImpl.:getObjectsFromWhereClause()SupplierServicePropertyValues:[{property_id=5, property_value=Out house}, {property_id=5, property_value=In house}]
+28 Oct 2014 09:07:04,968 - com.nms.db.DataAccessHibernateImpl - In DataAccessHibernateImpl.:getObjectsFromWhereClause()SupplierServicePropertyValues:[{property_id=5, property_value=Out house}, {property_id=5, property_value=In house}]
+28 Oct 2014 09:07:47,117 - com.nms.db.DataAccessHibernateImpl - In DataAccessHibernateImpl.:getObjectsFromWhereClause()SupplierServicePropertyValues:[{property_id=5, property_value=Out house}, {property_id=5, property_value=In house}]
+28 Oct 2014 09:09:00,342 - com.nms.db.DataAccessHibernateImpl - In DataAccessHibernateImpl.:getObjectsFromWhereClause()SupplierServicePropertyValues:[{property_id=5, property_value=Out house}, {property_id=5, property_value=In house}]
+28 Oct 2014 09:14:03,106 - com.nms.db.DataAccessHibernateImpl - In DataAccessHibernateImpl.:getObjectsFromWhereClause()SupplierServicePropertyValues:[{property_id=5, property_value=Out house}, {property_id=5, property_value=In house}]
+28 Oct 2014 09:17:09,456 - com.nms.db.DataAccessHibernateImpl - In DataAccessHibernateImpl.:getObjectsFromWhereClause()SupplierServicePropertyValues:[{property_id=5, property_value=Out house}, {property_id=5, property_value=In house}]
+28 Oct 2014 09:18:23,140 - com.nms.db.DataAccessHibernateImpl - In DataAccessHibernateImpl.:getObjectsFromWhereClause()SupplierServicePropertyValues:[{property_id=5, property_value=Out house}, {property_id=5, property_value=In house}]
+04 Nov 2014 21:00:57,314 - com.nms.db.DataAccessHibernateImpl - In DataAccessHibernateImpl.:getObjectsFromWhereClause()SupplierServicePropertyValues:[{property_id=5, property_value=Out house}, {property_id=5, property_value=In house}]
+04 Nov 2014 21:21:27,289 - com.nms.db.DataAccessHibernateImpl - In DataAccessHibernateImpl.:getObjectsFromWhereClause()SupplierServicePropertyValues:[{property_id=5, property_value=Out house}, {property_id=5, property_value=In house}]
+04 Nov 2014 21:23:11,932 - com.nms.db.DataAccessHibernateImpl - In DataAccessHibernateImpl.:getObjectsFromWhereClause()SupplierServicePropertyValues:[{property_id=5, property_value=Out house}, {property_id=5, property_value=In house}]
+04 Nov 2014 21:23:12,158 - com.nms.db.DataAccessHibernateImpl - The key value pairs are : key :property_id, value :5
+04 Nov 2014 21:23:12,158 - com.nms.db.DataAccessHibernateImpl - The key value pairs are : key :property_value, value :Out house
+04 Nov 2014 21:23:12,158 - com.nms.db.DataAccessHibernateImpl - The key value pairs are : key :property_id, value :5
+04 Nov 2014 21:23:12,159 - com.nms.db.DataAccessHibernateImpl - The key value pairs are : key :property_value, value :In house
+04 Nov 2014 21:23:12,159 - com.nms.db.DataAccessHibernateImpl - The query is select id,count(id) as totalPropertieswhere (obj. property_id='5' and obj.property_value='Out house')  or (obj. property_id='5' and obj.property_value='In house') group by id 
+04 Nov 2014 21:23:12,433 - com.nms.db.DataAccessHibernateImpl - Exception occured while getting object
+org.hibernate.hql.ast.QuerySyntaxException: unexpected token: ( near line 1, column 45 [select id,count(id) as totalPropertieswhere (obj. property_id='5' and obj.property_value='Out house')  or (obj. property_id='5' and obj.property_value='In house') group by id ]
+	at org.hibernate.hql.ast.QuerySyntaxException.convert(QuerySyntaxException.java:54)
+	at org.hibernate.hql.ast.QuerySyntaxException.convert(QuerySyntaxException.java:47)
+	at org.hibernate.hql.ast.ErrorCounter.throwQueryException(ErrorCounter.java:82)
+	at org.hibernate.hql.ast.QueryTranslatorImpl.parse(QueryTranslatorImpl.java:281)
+	at org.hibernate.hql.ast.QueryTranslatorImpl.doCompile(QueryTranslatorImpl.java:180)
+	at org.hibernate.hql.ast.QueryTranslatorImpl.compile(QueryTranslatorImpl.java:134)
+	at org.hibernate.engine.query.HQLQueryPlan.<init>(HQLQueryPlan.java:101)
+	at org.hibernate.engine.query.HQLQueryPlan.<init>(HQLQueryPlan.java:80)
+	at org.hibernate.engine.query.QueryPlanCache.getHQLQueryPlan(QueryPlanCache.java:94)
+	at org.hibernate.impl.AbstractSessionImpl.getHQLQueryPlan(AbstractSessionImpl.java:156)
+	at org.hibernate.impl.AbstractSessionImpl.createQuery(AbstractSessionImpl.java:135)
+	at org.hibernate.impl.SessionImpl.createQuery(SessionImpl.java:1650)
+	at com.nms.db.DataAccessHibernateImpl.getObjectsFromWhereClause(DataAccessHibernateImpl.java:315)
+	at com.nms.db.DataAccessHibernateImplTest.testGetObjectsFromWhereClause(DataAccessHibernateImplTest.java:59)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at junit.framework.TestCase.runTest(TestCase.java:176)
+	at junit.framework.TestCase.runBare(TestCase.java:141)
+	at junit.framework.TestResult$1.protect(TestResult.java:122)
+	at junit.framework.TestResult.runProtected(TestResult.java:142)
+	at junit.framework.TestResult.run(TestResult.java:125)
+	at junit.framework.TestCase.run(TestCase.java:129)
+	at junit.framework.TestSuite.runTest(TestSuite.java:255)
+	at junit.framework.TestSuite.run(TestSuite.java:250)
+	at org.junit.internal.runners.JUnit38ClassRunner.run(JUnit38ClassRunner.java:84)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:50)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:467)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:683)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:390)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:197)
+04 Nov 2014 21:24:00,010 - com.nms.db.DataAccessHibernateImpl - In DataAccessHibernateImpl.:getObjectsFromWhereClause()SupplierServicePropertyValues:[{property_id=5, property_value=Out house}, {property_id=5, property_value=In house}]
+04 Nov 2014 21:24:00,198 - com.nms.db.DataAccessHibernateImpl - The key value pairs are : key :property_id, value :5
+04 Nov 2014 21:24:00,199 - com.nms.db.DataAccessHibernateImpl - The key value pairs are : key :property_value, value :Out house
+04 Nov 2014 21:24:00,199 - com.nms.db.DataAccessHibernateImpl - The key value pairs are : key :property_id, value :5
+04 Nov 2014 21:24:00,199 - com.nms.db.DataAccessHibernateImpl - The key value pairs are : key :property_value, value :In house
+04 Nov 2014 21:24:00,200 - com.nms.db.DataAccessHibernateImpl - The query is select id,count(id) as totalProperties where (obj. property_id='5' and obj.property_value='Out house')  or (obj. property_id='5' and obj.property_value='In house') group by id 
+04 Nov 2014 21:24:00,595 - com.nms.db.DataAccessHibernateImpl - Exception occured while getting object
+java.lang.IllegalStateException: No data type for node: org.hibernate.hql.ast.tree.IdentNode 
+ +-[IDENT] IdentNode: 'id' {originalText=id}
+
+	at org.hibernate.hql.ast.tree.SelectClause.initializeExplicitSelectClause(SelectClause.java:167)
+	at org.hibernate.hql.ast.HqlSqlWalker.useSelectClause(HqlSqlWalker.java:727)
+	at org.hibernate.hql.ast.HqlSqlWalker.processQuery(HqlSqlWalker.java:551)
+	at org.hibernate.hql.antlr.HqlSqlBaseWalker.query(HqlSqlBaseWalker.java:645)
+	at org.hibernate.hql.antlr.HqlSqlBaseWalker.selectStatement(HqlSqlBaseWalker.java:281)
+	at org.hibernate.hql.antlr.HqlSqlBaseWalker.statement(HqlSqlBaseWalker.java:229)
+	at org.hibernate.hql.ast.QueryTranslatorImpl.analyze(QueryTranslatorImpl.java:251)
+	at org.hibernate.hql.ast.QueryTranslatorImpl.doCompile(QueryTranslatorImpl.java:183)
+	at org.hibernate.hql.ast.QueryTranslatorImpl.compile(QueryTranslatorImpl.java:134)
+	at org.hibernate.engine.query.HQLQueryPlan.<init>(HQLQueryPlan.java:101)
+	at org.hibernate.engine.query.HQLQueryPlan.<init>(HQLQueryPlan.java:80)
+	at org.hibernate.engine.query.QueryPlanCache.getHQLQueryPlan(QueryPlanCache.java:94)
+	at org.hibernate.impl.AbstractSessionImpl.getHQLQueryPlan(AbstractSessionImpl.java:156)
+	at org.hibernate.impl.AbstractSessionImpl.createQuery(AbstractSessionImpl.java:135)
+	at org.hibernate.impl.SessionImpl.createQuery(SessionImpl.java:1650)
+	at com.nms.db.DataAccessHibernateImpl.getObjectsFromWhereClause(DataAccessHibernateImpl.java:315)
+	at com.nms.db.DataAccessHibernateImplTest.testGetObjectsFromWhereClause(DataAccessHibernateImplTest.java:59)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at junit.framework.TestCase.runTest(TestCase.java:176)
+	at junit.framework.TestCase.runBare(TestCase.java:141)
+	at junit.framework.TestResult$1.protect(TestResult.java:122)
+	at junit.framework.TestResult.runProtected(TestResult.java:142)
+	at junit.framework.TestResult.run(TestResult.java:125)
+	at junit.framework.TestCase.run(TestCase.java:129)
+	at junit.framework.TestSuite.runTest(TestSuite.java:255)
+	at junit.framework.TestSuite.run(TestSuite.java:250)
+	at org.junit.internal.runners.JUnit38ClassRunner.run(JUnit38ClassRunner.java:84)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:50)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:467)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:683)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:390)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:197)
+04 Nov 2014 21:24:35,141 - com.nms.db.DataAccessHibernateImpl - In DataAccessHibernateImpl.:getObjectsFromWhereClause()SupplierServicePropertyValues:[{property_id=5, property_value=Out house}, {property_id=5, property_value=In house}]
+04 Nov 2014 21:24:35,458 - com.nms.db.DataAccessHibernateImpl - The key value pairs are : key :property_id, value :5
+04 Nov 2014 21:24:35,459 - com.nms.db.DataAccessHibernateImpl - The key value pairs are : key :property_value, value :Out house
+04 Nov 2014 21:24:35,460 - com.nms.db.DataAccessHibernateImpl - The key value pairs are : key :property_id, value :5
+04 Nov 2014 21:24:35,461 - com.nms.db.DataAccessHibernateImpl - The key value pairs are : key :property_value, value :In house
+04 Nov 2014 21:24:35,462 - com.nms.db.DataAccessHibernateImpl - The query is select id,count(id) as totalProperties where (obj. property_id='5' and obj.property_value='Out house')  or (obj. property_id='5' and obj.property_value='In house') group by id 
+04 Nov 2014 21:24:36,492 - com.nms.db.DataAccessHibernateImpl - Exception occured while getting object
+java.lang.IllegalStateException: No data type for node: org.hibernate.hql.ast.tree.IdentNode 
+ +-[IDENT] IdentNode: 'id' {originalText=id}
+
+	at org.hibernate.hql.ast.tree.SelectClause.initializeExplicitSelectClause(SelectClause.java:167)
+	at org.hibernate.hql.ast.HqlSqlWalker.useSelectClause(HqlSqlWalker.java:727)
+	at org.hibernate.hql.ast.HqlSqlWalker.processQuery(HqlSqlWalker.java:551)
+	at org.hibernate.hql.antlr.HqlSqlBaseWalker.query(HqlSqlBaseWalker.java:645)
+	at org.hibernate.hql.antlr.HqlSqlBaseWalker.selectStatement(HqlSqlBaseWalker.java:281)
+	at org.hibernate.hql.antlr.HqlSqlBaseWalker.statement(HqlSqlBaseWalker.java:229)
+	at org.hibernate.hql.ast.QueryTranslatorImpl.analyze(QueryTranslatorImpl.java:251)
+	at org.hibernate.hql.ast.QueryTranslatorImpl.doCompile(QueryTranslatorImpl.java:183)
+	at org.hibernate.hql.ast.QueryTranslatorImpl.compile(QueryTranslatorImpl.java:134)
+	at org.hibernate.engine.query.HQLQueryPlan.<init>(HQLQueryPlan.java:101)
+	at org.hibernate.engine.query.HQLQueryPlan.<init>(HQLQueryPlan.java:80)
+	at org.hibernate.engine.query.QueryPlanCache.getHQLQueryPlan(QueryPlanCache.java:94)
+	at org.hibernate.impl.AbstractSessionImpl.getHQLQueryPlan(AbstractSessionImpl.java:156)
+	at org.hibernate.impl.AbstractSessionImpl.createQuery(AbstractSessionImpl.java:135)
+	at org.hibernate.impl.SessionImpl.createQuery(SessionImpl.java:1650)
+	at com.nms.db.DataAccessHibernateImpl.getObjectsFromWhereClause(DataAccessHibernateImpl.java:315)
+	at com.nms.db.DataAccessHibernateImplTest.testGetObjectsFromWhereClause(DataAccessHibernateImplTest.java:59)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at junit.framework.TestCase.runTest(TestCase.java:176)
+	at junit.framework.TestCase.runBare(TestCase.java:141)
+	at junit.framework.TestResult$1.protect(TestResult.java:122)
+	at junit.framework.TestResult.runProtected(TestResult.java:142)
+	at junit.framework.TestResult.run(TestResult.java:125)
+	at junit.framework.TestCase.run(TestCase.java:129)
+	at junit.framework.TestSuite.runTest(TestSuite.java:255)
+	at junit.framework.TestSuite.run(TestSuite.java:250)
+	at org.junit.internal.runners.JUnit38ClassRunner.run(JUnit38ClassRunner.java:84)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:50)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:467)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:683)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:390)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:197)
+04 Nov 2014 21:25:33,489 - com.nms.db.DataAccessHibernateImpl - In DataAccessHibernateImpl.:getObjectsFromWhereClause()SupplierServicePropertyValues:[{property_id=5, property_value=Out house}, {property_id=5, property_value=In house}]
+04 Nov 2014 21:25:36,670 - com.nms.db.DataAccessHibernateImpl - The key value pairs are : key :property_id, value :5
+04 Nov 2014 21:25:36,671 - com.nms.db.DataAccessHibernateImpl - The key value pairs are : key :property_value, value :Out house
+04 Nov 2014 21:25:36,671 - com.nms.db.DataAccessHibernateImpl - The key value pairs are : key :property_id, value :5
+04 Nov 2014 21:25:36,672 - com.nms.db.DataAccessHibernateImpl - The key value pairs are : key :property_value, value :In house
+04 Nov 2014 21:25:44,856 - com.nms.db.DataAccessHibernateImpl - The query is select id,count(id) as totalProperties where (obj. property_id='5' and obj.property_value='Out house')  or (obj. property_id='5' and obj.property_value='In house') group by id 
+04 Nov 2014 21:27:54,092 - com.nms.db.DataAccessHibernateImpl - Exception occured while getting object
+java.lang.IllegalStateException: No data type for node: org.hibernate.hql.ast.tree.IdentNode 
+ +-[IDENT] IdentNode: 'id' {originalText=id}
+
+	at org.hibernate.hql.ast.tree.SelectClause.initializeExplicitSelectClause(SelectClause.java:167)
+	at org.hibernate.hql.ast.HqlSqlWalker.useSelectClause(HqlSqlWalker.java:727)
+	at org.hibernate.hql.ast.HqlSqlWalker.processQuery(HqlSqlWalker.java:551)
+	at org.hibernate.hql.antlr.HqlSqlBaseWalker.query(HqlSqlBaseWalker.java:645)
+	at org.hibernate.hql.antlr.HqlSqlBaseWalker.selectStatement(HqlSqlBaseWalker.java:281)
+	at org.hibernate.hql.antlr.HqlSqlBaseWalker.statement(HqlSqlBaseWalker.java:229)
+	at org.hibernate.hql.ast.QueryTranslatorImpl.analyze(QueryTranslatorImpl.java:251)
+	at org.hibernate.hql.ast.QueryTranslatorImpl.doCompile(QueryTranslatorImpl.java:183)
+	at org.hibernate.hql.ast.QueryTranslatorImpl.compile(QueryTranslatorImpl.java:134)
+	at org.hibernate.engine.query.HQLQueryPlan.<init>(HQLQueryPlan.java:101)
+	at org.hibernate.engine.query.HQLQueryPlan.<init>(HQLQueryPlan.java:80)
+	at org.hibernate.engine.query.QueryPlanCache.getHQLQueryPlan(QueryPlanCache.java:94)
+	at org.hibernate.impl.AbstractSessionImpl.getHQLQueryPlan(AbstractSessionImpl.java:156)
+	at org.hibernate.impl.AbstractSessionImpl.createQuery(AbstractSessionImpl.java:135)
+	at org.hibernate.impl.SessionImpl.createQuery(SessionImpl.java:1650)
+	at com.nms.db.DataAccessHibernateImpl.getObjectsFromWhereClause(DataAccessHibernateImpl.java:315)
+	at com.nms.db.DataAccessHibernateImplTest.testGetObjectsFromWhereClause(DataAccessHibernateImplTest.java:59)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at junit.framework.TestCase.runTest(TestCase.java:176)
+	at junit.framework.TestCase.runBare(TestCase.java:141)
+	at junit.framework.TestResult$1.protect(TestResult.java:122)
+	at junit.framework.TestResult.runProtected(TestResult.java:142)
+	at junit.framework.TestResult.run(TestResult.java:125)
+	at junit.framework.TestCase.run(TestCase.java:129)
+	at junit.framework.TestSuite.runTest(TestSuite.java:255)
+	at junit.framework.TestSuite.run(TestSuite.java:250)
+	at org.junit.internal.runners.JUnit38ClassRunner.run(JUnit38ClassRunner.java:84)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:50)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:467)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:683)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:390)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:197)
+04 Nov 2014 21:29:11,684 - com.nms.db.DataAccessHibernateImpl - In DataAccessHibernateImpl.:getObjectsFromWhereClause()SupplierServicePropertyValues:[{property_id=5, property_value=Out house}, {property_id=5, property_value=In house}]
+04 Nov 2014 21:29:11,867 - com.nms.db.DataAccessHibernateImpl - The key value pairs are : key :property_id, value :5
+04 Nov 2014 21:29:11,868 - com.nms.db.DataAccessHibernateImpl - The key value pairs are : key :property_value, value :Out house
+04 Nov 2014 21:29:11,868 - com.nms.db.DataAccessHibernateImpl - The key value pairs are : key :property_id, value :5
+04 Nov 2014 21:29:11,868 - com.nms.db.DataAccessHibernateImpl - The key value pairs are : key :property_value, value :In house
+04 Nov 2014 21:29:23,199 - com.nms.db.DataAccessHibernateImpl - The query is select id,count(id) as totalProperties  from SupplierServicePropertyValues as obj where (obj. property_id='5' and obj.property_value='Out house')  or (obj. property_id='5' and obj.property_value='In house') group by id 
+04 Nov 2014 21:30:28,360 - com.nms.db.DataAccessHibernateImpl - Exception occured while getting object
+org.hibernate.hql.ast.QuerySyntaxException: SupplierServicePropertyValues is not mapped [select id,count(id) as totalProperties  from SupplierServicePropertyValues as obj where (obj. property_id='5' and obj.property_value='Out house')  or (obj. property_id='5' and obj.property_value='In house') group by id ]
+	at org.hibernate.hql.ast.util.SessionFactoryHelper.requireClassPersister(SessionFactoryHelper.java:181)
+	at org.hibernate.hql.ast.tree.FromElementFactory.addFromElement(FromElementFactory.java:110)
+	at org.hibernate.hql.ast.tree.FromClause.addFromElement(FromClause.java:93)
+	at org.hibernate.hql.ast.HqlSqlWalker.createFromElement(HqlSqlWalker.java:277)
+	at org.hibernate.hql.antlr.HqlSqlBaseWalker.fromElement(HqlSqlBaseWalker.java:3056)
+	at org.hibernate.hql.antlr.HqlSqlBaseWalker.fromElementList(HqlSqlBaseWalker.java:2945)
+	at org.hibernate.hql.antlr.HqlSqlBaseWalker.fromClause(HqlSqlBaseWalker.java:688)
+	at org.hibernate.hql.antlr.HqlSqlBaseWalker.query(HqlSqlBaseWalker.java:544)
+	at org.hibernate.hql.antlr.HqlSqlBaseWalker.selectStatement(HqlSqlBaseWalker.java:281)
+	at org.hibernate.hql.antlr.HqlSqlBaseWalker.statement(HqlSqlBaseWalker.java:229)
+	at org.hibernate.hql.ast.QueryTranslatorImpl.analyze(QueryTranslatorImpl.java:251)
+	at org.hibernate.hql.ast.QueryTranslatorImpl.doCompile(QueryTranslatorImpl.java:183)
+	at org.hibernate.hql.ast.QueryTranslatorImpl.compile(QueryTranslatorImpl.java:134)
+	at org.hibernate.engine.query.HQLQueryPlan.<init>(HQLQueryPlan.java:101)
+	at org.hibernate.engine.query.HQLQueryPlan.<init>(HQLQueryPlan.java:80)
+	at org.hibernate.engine.query.QueryPlanCache.getHQLQueryPlan(QueryPlanCache.java:94)
+	at org.hibernate.impl.AbstractSessionImpl.getHQLQueryPlan(AbstractSessionImpl.java:156)
+	at org.hibernate.impl.AbstractSessionImpl.createQuery(AbstractSessionImpl.java:135)
+	at org.hibernate.impl.SessionImpl.createQuery(SessionImpl.java:1650)
+	at com.nms.db.DataAccessHibernateImpl.getObjectsFromWhereClause(DataAccessHibernateImpl.java:315)
+	at com.nms.db.DataAccessHibernateImplTest.testGetObjectsFromWhereClause(DataAccessHibernateImplTest.java:59)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at junit.framework.TestCase.runTest(TestCase.java:176)
+	at junit.framework.TestCase.runBare(TestCase.java:141)
+	at junit.framework.TestResult$1.protect(TestResult.java:122)
+	at junit.framework.TestResult.runProtected(TestResult.java:142)
+	at junit.framework.TestResult.run(TestResult.java:125)
+	at junit.framework.TestCase.run(TestCase.java:129)
+	at junit.framework.TestSuite.runTest(TestSuite.java:255)
+	at junit.framework.TestSuite.run(TestSuite.java:250)
+	at org.junit.internal.runners.JUnit38ClassRunner.run(JUnit38ClassRunner.java:84)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:50)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:467)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:683)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:390)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:197)
+04 Nov 2014 21:31:27,324 - com.nms.db.DataAccessHibernateImpl - In DataAccessHibernateImpl.:getObjectsFromWhereClause()supplier_service_property_values:[{property_id=5, property_value=Out house}, {property_id=5, property_value=In house}]
+04 Nov 2014 21:31:27,559 - com.nms.db.DataAccessHibernateImpl - The key value pairs are : key :property_id, value :5
+04 Nov 2014 21:31:27,559 - com.nms.db.DataAccessHibernateImpl - The key value pairs are : key :property_value, value :Out house
+04 Nov 2014 21:31:27,560 - com.nms.db.DataAccessHibernateImpl - The key value pairs are : key :property_id, value :5
+04 Nov 2014 21:31:27,560 - com.nms.db.DataAccessHibernateImpl - The key value pairs are : key :property_value, value :In house
+04 Nov 2014 21:33:16,191 - com.nms.db.DataAccessHibernateImpl - The query is select id,count(id) as totalProperties  from supplier_service_property_values as obj where (obj. property_id='5' and obj.property_value='Out house')  or (obj. property_id='5' and obj.property_value='In house') group by id 
+04 Nov 2014 21:35:15,407 - com.nms.db.DataAccessHibernateImpl - Exception occured while getting object
+org.hibernate.hql.ast.QuerySyntaxException: supplier_service_property_values is not mapped [select id,count(id) as totalProperties  from supplier_service_property_values as obj where (obj. property_id='5' and obj.property_value='Out house')  or (obj. property_id='5' and obj.property_value='In house') group by id ]
+	at org.hibernate.hql.ast.util.SessionFactoryHelper.requireClassPersister(SessionFactoryHelper.java:181)
+	at org.hibernate.hql.ast.tree.FromElementFactory.addFromElement(FromElementFactory.java:110)
+	at org.hibernate.hql.ast.tree.FromClause.addFromElement(FromClause.java:93)
+	at org.hibernate.hql.ast.HqlSqlWalker.createFromElement(HqlSqlWalker.java:277)
+	at org.hibernate.hql.antlr.HqlSqlBaseWalker.fromElement(HqlSqlBaseWalker.java:3056)
+	at org.hibernate.hql.antlr.HqlSqlBaseWalker.fromElementList(HqlSqlBaseWalker.java:2945)
+	at org.hibernate.hql.antlr.HqlSqlBaseWalker.fromClause(HqlSqlBaseWalker.java:688)
+	at org.hibernate.hql.antlr.HqlSqlBaseWalker.query(HqlSqlBaseWalker.java:544)
+	at org.hibernate.hql.antlr.HqlSqlBaseWalker.selectStatement(HqlSqlBaseWalker.java:281)
+	at org.hibernate.hql.antlr.HqlSqlBaseWalker.statement(HqlSqlBaseWalker.java:229)
+	at org.hibernate.hql.ast.QueryTranslatorImpl.analyze(QueryTranslatorImpl.java:251)
+	at org.hibernate.hql.ast.QueryTranslatorImpl.doCompile(QueryTranslatorImpl.java:183)
+	at org.hibernate.hql.ast.QueryTranslatorImpl.compile(QueryTranslatorImpl.java:134)
+	at org.hibernate.engine.query.HQLQueryPlan.<init>(HQLQueryPlan.java:101)
+	at org.hibernate.engine.query.HQLQueryPlan.<init>(HQLQueryPlan.java:80)
+	at org.hibernate.engine.query.QueryPlanCache.getHQLQueryPlan(QueryPlanCache.java:94)
+	at org.hibernate.impl.AbstractSessionImpl.getHQLQueryPlan(AbstractSessionImpl.java:156)
+	at org.hibernate.impl.AbstractSessionImpl.createQuery(AbstractSessionImpl.java:135)
+	at org.hibernate.impl.SessionImpl.createQuery(SessionImpl.java:1650)
+	at com.nms.db.DataAccessHibernateImpl.getObjectsFromWhereClause(DataAccessHibernateImpl.java:315)
+	at com.nms.db.DataAccessHibernateImplTest.testGetObjectsFromWhereClause(DataAccessHibernateImplTest.java:59)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at junit.framework.TestCase.runTest(TestCase.java:176)
+	at junit.framework.TestCase.runBare(TestCase.java:141)
+	at junit.framework.TestResult$1.protect(TestResult.java:122)
+	at junit.framework.TestResult.runProtected(TestResult.java:142)
+	at junit.framework.TestResult.run(TestResult.java:125)
+	at junit.framework.TestCase.run(TestCase.java:129)
+	at junit.framework.TestSuite.runTest(TestSuite.java:255)
+	at junit.framework.TestSuite.run(TestSuite.java:250)
+	at org.junit.internal.runners.JUnit38ClassRunner.run(JUnit38ClassRunner.java:84)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:50)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:467)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:683)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:390)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:197)
+04 Nov 2014 21:38:06,648 - com.nms.db.DataAccessHibernateImpl - In DataAccessHibernateImpl.:getObjectsFromWhereClause()supplier_service_property_values:[{property_id=5, property_value=Out house}, {property_id=5, property_value=In house}]
+04 Nov 2014 21:38:06,826 - com.nms.db.DataAccessHibernateImpl - The key value pairs are : key :property_id, value :5
+04 Nov 2014 21:38:06,826 - com.nms.db.DataAccessHibernateImpl - The key value pairs are : key :property_value, value :Out house
+04 Nov 2014 21:38:06,826 - com.nms.db.DataAccessHibernateImpl - The key value pairs are : key :property_id, value :5
+04 Nov 2014 21:38:06,826 - com.nms.db.DataAccessHibernateImpl - The key value pairs are : key :property_value, value :In house
+04 Nov 2014 21:38:56,355 - com.nms.db.DataAccessHibernateImpl - In DataAccessHibernateImpl.:getObjectsFromWhereClause()supplier_service_property_values:[{property_id=5, property_value=Out house}, {property_id=5, property_value=In house}]
+04 Nov 2014 21:38:56,422 - com.nms.db.DataAccessHibernateImpl - The key value pairs are : key :property_id, value :5
+04 Nov 2014 21:38:56,422 - com.nms.db.DataAccessHibernateImpl - The key value pairs are : key :property_value, value :Out house
+04 Nov 2014 21:38:56,422 - com.nms.db.DataAccessHibernateImpl - The key value pairs are : key :property_id, value :5
+04 Nov 2014 21:38:56,422 - com.nms.db.DataAccessHibernateImpl - The key value pairs are : key :property_value, value :In house
+04 Nov 2014 21:38:56,857 - com.nms.db.DataAccessHibernateImpl - The query is select id  from supplier_service_property_values as obj where (obj. property_id='5' and obj.property_value='Out house')  or (obj. property_id='5' and obj.property_value='In house') group by id 
+04 Nov 2014 21:38:57,215 - com.nms.db.DataAccessHibernateImpl - Exception occured while getting object
+org.hibernate.hql.ast.QuerySyntaxException: supplier_service_property_values is not mapped [select id  from supplier_service_property_values as obj where (obj. property_id='5' and obj.property_value='Out house')  or (obj. property_id='5' and obj.property_value='In house') group by id ]
+	at org.hibernate.hql.ast.util.SessionFactoryHelper.requireClassPersister(SessionFactoryHelper.java:181)
+	at org.hibernate.hql.ast.tree.FromElementFactory.addFromElement(FromElementFactory.java:110)
+	at org.hibernate.hql.ast.tree.FromClause.addFromElement(FromClause.java:93)
+	at org.hibernate.hql.ast.HqlSqlWalker.createFromElement(HqlSqlWalker.java:277)
+	at org.hibernate.hql.antlr.HqlSqlBaseWalker.fromElement(HqlSqlBaseWalker.java:3056)
+	at org.hibernate.hql.antlr.HqlSqlBaseWalker.fromElementList(HqlSqlBaseWalker.java:2945)
+	at org.hibernate.hql.antlr.HqlSqlBaseWalker.fromClause(HqlSqlBaseWalker.java:688)
+	at org.hibernate.hql.antlr.HqlSqlBaseWalker.query(HqlSqlBaseWalker.java:544)
+	at org.hibernate.hql.antlr.HqlSqlBaseWalker.selectStatement(HqlSqlBaseWalker.java:281)
+	at org.hibernate.hql.antlr.HqlSqlBaseWalker.statement(HqlSqlBaseWalker.java:229)
+	at org.hibernate.hql.ast.QueryTranslatorImpl.analyze(QueryTranslatorImpl.java:251)
+	at org.hibernate.hql.ast.QueryTranslatorImpl.doCompile(QueryTranslatorImpl.java:183)
+	at org.hibernate.hql.ast.QueryTranslatorImpl.compile(QueryTranslatorImpl.java:134)
+	at org.hibernate.engine.query.HQLQueryPlan.<init>(HQLQueryPlan.java:101)
+	at org.hibernate.engine.query.HQLQueryPlan.<init>(HQLQueryPlan.java:80)
+	at org.hibernate.engine.query.QueryPlanCache.getHQLQueryPlan(QueryPlanCache.java:94)
+	at org.hibernate.impl.AbstractSessionImpl.getHQLQueryPlan(AbstractSessionImpl.java:156)
+	at org.hibernate.impl.AbstractSessionImpl.createQuery(AbstractSessionImpl.java:135)
+	at org.hibernate.impl.SessionImpl.createQuery(SessionImpl.java:1650)
+	at com.nms.db.DataAccessHibernateImpl.getObjectsFromWhereClause(DataAccessHibernateImpl.java:315)
+	at com.nms.db.DataAccessHibernateImplTest.testGetObjectsFromWhereClause(DataAccessHibernateImplTest.java:59)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at junit.framework.TestCase.runTest(TestCase.java:176)
+	at junit.framework.TestCase.runBare(TestCase.java:141)
+	at junit.framework.TestResult$1.protect(TestResult.java:122)
+	at junit.framework.TestResult.runProtected(TestResult.java:142)
+	at junit.framework.TestResult.run(TestResult.java:125)
+	at junit.framework.TestCase.run(TestCase.java:129)
+	at junit.framework.TestSuite.runTest(TestSuite.java:255)
+	at junit.framework.TestSuite.run(TestSuite.java:250)
+	at org.junit.internal.runners.JUnit38ClassRunner.run(JUnit38ClassRunner.java:84)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:50)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:467)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:683)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:390)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:197)
+04 Nov 2014 21:39:16,746 - com.nms.db.DataAccessHibernateImpl - In DataAccessHibernateImpl.:getObjectsFromWhereClause()SupplierServicePropertyValues:[{property_id=5, property_value=Out house}, {property_id=5, property_value=In house}]
+04 Nov 2014 21:39:16,927 - com.nms.db.DataAccessHibernateImpl - The key value pairs are : key :property_id, value :5
+04 Nov 2014 21:39:16,928 - com.nms.db.DataAccessHibernateImpl - The key value pairs are : key :property_value, value :Out house
+04 Nov 2014 21:39:16,930 - com.nms.db.DataAccessHibernateImpl - The key value pairs are : key :property_id, value :5
+04 Nov 2014 21:39:16,930 - com.nms.db.DataAccessHibernateImpl - The key value pairs are : key :property_value, value :In house
+04 Nov 2014 21:39:28,666 - com.nms.db.DataAccessHibernateImpl - The query is select id  from SupplierServicePropertyValues as obj where (obj. property_id='5' and obj.property_value='Out house')  or (obj. property_id='5' and obj.property_value='In house') group by id 
+04 Nov 2014 21:42:44,315 - com.nms.db.DataAccessHibernateImpl - In DataAccessHibernateImpl.:getObjectsFromWhereClause()SupplierServicePropertyValues:[{property_id=5, property_value=Out house}, {property_id=5, property_value=In house}]
+04 Nov 2014 21:42:44,392 - com.nms.db.DataAccessHibernateImpl - The key value pairs are : key :property_id, value :5
+04 Nov 2014 21:42:44,392 - com.nms.db.DataAccessHibernateImpl - The key value pairs are : key :property_value, value :Out house
+04 Nov 2014 21:42:44,392 - com.nms.db.DataAccessHibernateImpl - The key value pairs are : key :property_id, value :5
+04 Nov 2014 21:42:44,392 - com.nms.db.DataAccessHibernateImpl - The key value pairs are : key :property_value, value :In house
+04 Nov 2014 21:42:50,983 - com.nms.db.DataAccessHibernateImpl - The query is select id  from SupplierServicePropertyValues as obj where (obj. property_id='5' and obj.property_value='Out house')  or (obj. property_id='5' and obj.property_value='In house') group by id 
+04 Nov 2014 21:42:51,019 - com.nms.db.DataAccessHibernateImpl - Exception occured while getting object
+org.hibernate.hql.ast.QuerySyntaxException: SupplierServicePropertyValues is not mapped [select id  from SupplierServicePropertyValues as obj where (obj. property_id='5' and obj.property_value='Out house')  or (obj. property_id='5' and obj.property_value='In house') group by id ]
+	at org.hibernate.hql.ast.util.SessionFactoryHelper.requireClassPersister(SessionFactoryHelper.java:181)
+	at org.hibernate.hql.ast.tree.FromElementFactory.addFromElement(FromElementFactory.java:110)
+	at org.hibernate.hql.ast.tree.FromClause.addFromElement(FromClause.java:93)
+	at org.hibernate.hql.ast.HqlSqlWalker.createFromElement(HqlSqlWalker.java:277)
+	at org.hibernate.hql.antlr.HqlSqlBaseWalker.fromElement(HqlSqlBaseWalker.java:3056)
+	at org.hibernate.hql.antlr.HqlSqlBaseWalker.fromElementList(HqlSqlBaseWalker.java:2945)
+	at org.hibernate.hql.antlr.HqlSqlBaseWalker.fromClause(HqlSqlBaseWalker.java:688)
+	at org.hibernate.hql.antlr.HqlSqlBaseWalker.query(HqlSqlBaseWalker.java:544)
+	at org.hibernate.hql.antlr.HqlSqlBaseWalker.selectStatement(HqlSqlBaseWalker.java:281)
+	at org.hibernate.hql.antlr.HqlSqlBaseWalker.statement(HqlSqlBaseWalker.java:229)
+	at org.hibernate.hql.ast.QueryTranslatorImpl.analyze(QueryTranslatorImpl.java:251)
+	at org.hibernate.hql.ast.QueryTranslatorImpl.doCompile(QueryTranslatorImpl.java:183)
+	at org.hibernate.hql.ast.QueryTranslatorImpl.compile(QueryTranslatorImpl.java:134)
+	at org.hibernate.engine.query.HQLQueryPlan.<init>(HQLQueryPlan.java:101)
+	at org.hibernate.engine.query.HQLQueryPlan.<init>(HQLQueryPlan.java:80)
+	at org.hibernate.engine.query.QueryPlanCache.getHQLQueryPlan(QueryPlanCache.java:94)
+	at org.hibernate.impl.AbstractSessionImpl.getHQLQueryPlan(AbstractSessionImpl.java:156)
+	at org.hibernate.impl.AbstractSessionImpl.createQuery(AbstractSessionImpl.java:135)
+	at org.hibernate.impl.SessionImpl.createQuery(SessionImpl.java:1650)
+	at com.nms.db.DataAccessHibernateImpl.getObjectsFromWhereClause(DataAccessHibernateImpl.java:315)
+	at com.nms.db.DataAccessHibernateImplTest.testGetObjectsFromWhereClause(DataAccessHibernateImplTest.java:59)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at junit.framework.TestCase.runTest(TestCase.java:176)
+	at junit.framework.TestCase.runBare(TestCase.java:141)
+	at junit.framework.TestResult$1.protect(TestResult.java:122)
+	at junit.framework.TestResult.runProtected(TestResult.java:142)
+	at junit.framework.TestResult.run(TestResult.java:125)
+	at junit.framework.TestCase.run(TestCase.java:129)
+	at junit.framework.TestSuite.runTest(TestSuite.java:255)
+	at junit.framework.TestSuite.run(TestSuite.java:250)
+	at org.junit.internal.runners.JUnit38ClassRunner.run(JUnit38ClassRunner.java:84)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:50)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:467)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:683)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:390)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:197)
+04 Nov 2014 21:43:16,642 - com.nms.db.DataAccessHibernateImpl - In DataAccessHibernateImpl.:getObjectsFromWhereClause()SupplierServicePropertyValues:[{property_id=5, property_value=Out house}, {property_id=5, property_value=In house}]
+04 Nov 2014 21:43:16,801 - com.nms.db.DataAccessHibernateImpl - The key value pairs are : key :property_id, value :5
+04 Nov 2014 21:43:16,802 - com.nms.db.DataAccessHibernateImpl - The key value pairs are : key :property_value, value :Out house
+04 Nov 2014 21:43:16,802 - com.nms.db.DataAccessHibernateImpl - The key value pairs are : key :property_id, value :5
+04 Nov 2014 21:43:16,802 - com.nms.db.DataAccessHibernateImpl - The key value pairs are : key :property_value, value :In house
+04 Nov 2014 21:43:28,628 - com.nms.db.DataAccessHibernateImpl - The query is from SupplierServicePropertyValues as obj where (obj. property_id='5' and obj.property_value='Out house')  or (obj. property_id='5' and obj.property_value='In house') group by id 
+04 Nov 2014 21:47:44,828 - com.nms.db.DataAccessHibernateImpl - Exception occured while getting object
+org.hibernate.hql.ast.QuerySyntaxException: SupplierServicePropertyValues is not mapped [from SupplierServicePropertyValues as obj where (obj. property_id='5' and obj.property_value='Out house')  or (obj. property_id='5' and obj.property_value='In house') group by id ]
+	at org.hibernate.hql.ast.util.SessionFactoryHelper.requireClassPersister(SessionFactoryHelper.java:181)
+	at org.hibernate.hql.ast.tree.FromElementFactory.addFromElement(FromElementFactory.java:110)
+	at org.hibernate.hql.ast.tree.FromClause.addFromElement(FromClause.java:93)
+	at org.hibernate.hql.ast.HqlSqlWalker.createFromElement(HqlSqlWalker.java:277)
+	at org.hibernate.hql.antlr.HqlSqlBaseWalker.fromElement(HqlSqlBaseWalker.java:3056)
+	at org.hibernate.hql.antlr.HqlSqlBaseWalker.fromElementList(HqlSqlBaseWalker.java:2945)
+	at org.hibernate.hql.antlr.HqlSqlBaseWalker.fromClause(HqlSqlBaseWalker.java:688)
+	at org.hibernate.hql.antlr.HqlSqlBaseWalker.query(HqlSqlBaseWalker.java:544)
+	at org.hibernate.hql.antlr.HqlSqlBaseWalker.selectStatement(HqlSqlBaseWalker.java:281)
+	at org.hibernate.hql.antlr.HqlSqlBaseWalker.statement(HqlSqlBaseWalker.java:229)
+	at org.hibernate.hql.ast.QueryTranslatorImpl.analyze(QueryTranslatorImpl.java:251)
+	at org.hibernate.hql.ast.QueryTranslatorImpl.doCompile(QueryTranslatorImpl.java:183)
+	at org.hibernate.hql.ast.QueryTranslatorImpl.compile(QueryTranslatorImpl.java:134)
+	at org.hibernate.engine.query.HQLQueryPlan.<init>(HQLQueryPlan.java:101)
+	at org.hibernate.engine.query.HQLQueryPlan.<init>(HQLQueryPlan.java:80)
+	at org.hibernate.engine.query.QueryPlanCache.getHQLQueryPlan(QueryPlanCache.java:94)
+	at org.hibernate.impl.AbstractSessionImpl.getHQLQueryPlan(AbstractSessionImpl.java:156)
+	at org.hibernate.impl.AbstractSessionImpl.createQuery(AbstractSessionImpl.java:135)
+	at org.hibernate.impl.SessionImpl.createQuery(SessionImpl.java:1650)
+	at com.nms.db.DataAccessHibernateImpl.getObjectsFromWhereClause(DataAccessHibernateImpl.java:315)
+	at com.nms.db.DataAccessHibernateImplTest.testGetObjectsFromWhereClause(DataAccessHibernateImplTest.java:59)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at junit.framework.TestCase.runTest(TestCase.java:176)
+	at junit.framework.TestCase.runBare(TestCase.java:141)
+	at junit.framework.TestResult$1.protect(TestResult.java:122)
+	at junit.framework.TestResult.runProtected(TestResult.java:142)
+	at junit.framework.TestResult.run(TestResult.java:125)
+	at junit.framework.TestCase.run(TestCase.java:129)
+	at junit.framework.TestSuite.runTest(TestSuite.java:255)
+	at junit.framework.TestSuite.run(TestSuite.java:250)
+	at org.junit.internal.runners.JUnit38ClassRunner.run(JUnit38ClassRunner.java:84)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:50)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:467)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:683)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:390)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:197)
+04 Nov 2014 21:50:15,020 - com.nms.db.DataAccessHibernateImpl - In DataAccessHibernateImpl.:getObjectsFromWhereClause()SupplierServicePropertyValues:[{property_id=5, property_value=Out house}, {property_id=5, property_value=In house}]
+04 Nov 2014 21:50:15,243 - com.nms.db.DataAccessHibernateImpl - The key value pairs are : key :property_id, value :5
+04 Nov 2014 21:50:15,243 - com.nms.db.DataAccessHibernateImpl - The key value pairs are : key :property_value, value :Out house
+04 Nov 2014 21:50:15,243 - com.nms.db.DataAccessHibernateImpl - The key value pairs are : key :property_id, value :5
+04 Nov 2014 21:50:15,244 - com.nms.db.DataAccessHibernateImpl - The key value pairs are : key :property_value, value :In house
+04 Nov 2014 21:50:31,657 - com.nms.db.DataAccessHibernateImpl - The query is select id,count(id) as totalProperties  from SupplierServicePropertyValues as obj where (obj. property_id='5' and obj.property_value='Out house')  or (obj. property_id='5' and obj.property_value='In house') group by id 
+04 Nov 2014 21:50:31,957 - com.nms.db.DataAccessHibernateImpl - Exception occured while getting object
+org.hibernate.exception.SQLGrammarException: could not execute query
+	at org.hibernate.exception.SQLStateConverter.convert(SQLStateConverter.java:90)
+	at org.hibernate.exception.JDBCExceptionHelper.convert(JDBCExceptionHelper.java:66)
+	at org.hibernate.loader.Loader.doList(Loader.java:2231)
+	at org.hibernate.loader.Loader.listIgnoreQueryCache(Loader.java:2125)
+	at org.hibernate.loader.Loader.list(Loader.java:2120)
+	at org.hibernate.loader.custom.CustomLoader.list(CustomLoader.java:312)
+	at org.hibernate.impl.SessionImpl.listCustomQuery(SessionImpl.java:1722)
+	at org.hibernate.impl.AbstractSessionImpl.list(AbstractSessionImpl.java:165)
+	at org.hibernate.impl.SQLQueryImpl.list(SQLQueryImpl.java:175)
+	at com.nms.db.DataAccessHibernateImpl.getObjectsFromWhereClause(DataAccessHibernateImpl.java:315)
+	at com.nms.db.DataAccessHibernateImplTest.testGetObjectsFromWhereClause(DataAccessHibernateImplTest.java:59)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at junit.framework.TestCase.runTest(TestCase.java:176)
+	at junit.framework.TestCase.runBare(TestCase.java:141)
+	at junit.framework.TestResult$1.protect(TestResult.java:122)
+	at junit.framework.TestResult.runProtected(TestResult.java:142)
+	at junit.framework.TestResult.run(TestResult.java:125)
+	at junit.framework.TestCase.run(TestCase.java:129)
+	at junit.framework.TestSuite.runTest(TestSuite.java:255)
+	at junit.framework.TestSuite.run(TestSuite.java:250)
+	at org.junit.internal.runners.JUnit38ClassRunner.run(JUnit38ClassRunner.java:84)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:50)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:467)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:683)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:390)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:197)
+Caused by: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Table 'bsiprod.supplierservicepropertyvalues' doesn't exist
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:39)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:27)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:513)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:411)
+	at com.mysql.jdbc.Util.getInstance(Util.java:386)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1052)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:4096)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:4028)
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2490)
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2651)
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2683)
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:2144)
+	at com.mysql.jdbc.PreparedStatement.executeQuery(PreparedStatement.java:2310)
+	at org.apache.commons.dbcp.DelegatingPreparedStatement.executeQuery(DelegatingPreparedStatement.java:96)
+	at org.apache.commons.dbcp.DelegatingPreparedStatement.executeQuery(DelegatingPreparedStatement.java:96)
+	at org.hibernate.jdbc.AbstractBatcher.getResultSet(AbstractBatcher.java:208)
+	at org.hibernate.loader.Loader.getResultSet(Loader.java:1808)
+	at org.hibernate.loader.Loader.doQuery(Loader.java:697)
+	at org.hibernate.loader.Loader.doQueryAndInitializeNonLazyCollections(Loader.java:259)
+	at org.hibernate.loader.Loader.doList(Loader.java:2228)
+	... 27 more
+04 Nov 2014 21:52:38,332 - com.nms.db.DataAccessHibernateImpl - In DataAccessHibernateImpl.:getObjectsFromWhereClause()supplier_service_property_values:[{property_id=5, property_value=Out house}, {property_id=5, property_value=In house}]
+04 Nov 2014 21:52:38,486 - com.nms.db.DataAccessHibernateImpl - The key value pairs are : key :property_id, value :5
+04 Nov 2014 21:52:38,486 - com.nms.db.DataAccessHibernateImpl - The key value pairs are : key :property_value, value :Out house
+04 Nov 2014 21:52:38,486 - com.nms.db.DataAccessHibernateImpl - The key value pairs are : key :property_id, value :5
+04 Nov 2014 21:52:38,486 - com.nms.db.DataAccessHibernateImpl - The key value pairs are : key :property_value, value :In house
+04 Nov 2014 21:52:51,173 - com.nms.db.DataAccessHibernateImpl - The query is select id,count(id) as totalProperties  from supplier_service_property_values as obj where (obj. property_id='5' and obj.property_value='Out house')  or (obj. property_id='5' and obj.property_value='In house') group by id 
+04 Nov 2014 22:19:11,854 - com.nms.db.DataAccessHibernateImpl - In DataAccessHibernateImpl.:getObjectsFromWhereClause()supplier_service_property_values:[{property_id=5, property_value=Out house}, {property_id=5, property_value=In house}]
+04 Nov 2014 22:19:11,962 - com.nms.db.DataAccessHibernateImpl - The key value pairs are : key :property_id, value :5
+04 Nov 2014 22:19:11,962 - com.nms.db.DataAccessHibernateImpl - The key value pairs are : key :property_value, value :Out house
+04 Nov 2014 22:19:11,962 - com.nms.db.DataAccessHibernateImpl - The key value pairs are : key :property_id, value :5
+04 Nov 2014 22:19:11,962 - com.nms.db.DataAccessHibernateImpl - The key value pairs are : key :property_value, value :In house
+04 Nov 2014 22:19:11,962 - com.nms.db.DataAccessHibernateImpl - The query is select id,count(id) as totalProperties  from supplier_service_property_values as obj where (obj. property_id='5' and obj.property_value='Out house')  or (obj. property_id='5' and obj.property_value='In house') group by id 

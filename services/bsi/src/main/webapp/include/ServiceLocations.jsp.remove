@@ -1,0 +1,30 @@
+
+<table width="50%" border="0" align=top cellpadding="0" cellspacing="0">
+	<logic:present name="<%= BSIConstants.COUNTRY_LIST %>">
+	  <tr>
+	    <td width="25%"><bean:message key="CreateSupplier.country"/></td>
+	    <td width="75%">
+		<html:select property="countryId" onchange="getStates(this)">
+		    <html:option value=""><bean:message key="common.dropdown.select"/></html:option>
+		    <html:options collection="<%= BSIConstants.COUNTRY_LIST %>" 
+				  property="id"
+				  labelProperty="name"/>
+		</html:select>
+	    </td>
+	  </tr>
+	</logic:present>	  
+
+
+	<tr style="display:none">
+	<td width="25%"><bean:message key="CreateSupplier.state"/></td>
+	<td width="75%">
+	<div id='states'></div>
+	</td>
+	</tr>
+	<tr style="display:none">
+	<td width="25%"><bean:message key="CreateSupplier.location"/></td>
+	<td width="75%">
+	<div id='locations'></div>
+	</td>
+	</tr>
+</table>

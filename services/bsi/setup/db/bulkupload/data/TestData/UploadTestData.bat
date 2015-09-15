@@ -1,0 +1,1 @@
+mysql -u nshaikh2 -p bsiprod < LoadTestData.sql

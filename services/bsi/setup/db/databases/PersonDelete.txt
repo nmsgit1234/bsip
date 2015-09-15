@@ -1,0 +1,5 @@
+delete from person_services where person_id in (select person_id from persons where email='nmsetc@yahoo.co.in');
+
+delete from user_groups where person_id in (select person_id from persons where email='nmsetc@yahoo.co.in');
+
+delete from persons where email='nmsetc@yahoo.co.in';

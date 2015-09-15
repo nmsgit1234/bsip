@@ -1,0 +1,69 @@
+Basic things in a web application development.
+=============================================
+
+Adding an object
+Editing an object
+Deleting an object
+Listing an object
+Sorting objects
+Pagination
+Searching an object
+Database handling.
+Logging.
+Exception handling
+Look and feel
+Authorization
+Localization and internationalization
+Monitoring request and response.
+JUnit test cases.
+Caching at application level
+Caching at user level
+
+
+Pagination
+==========
+
+Few results
+	1. Send all results to client
+	2. client does the pagination
+
+
+Huge results
+	Approach a.
+
+	a. Cache the results
+	b. Send only the number rows to be displayed to the client
+	c. Client takes care of pagination.
+	
+	
+	Approach b.
+
+	a. Get only the number of results to be displayed from query.
+	b. Send only the number rows to be displayed to the client.
+	c. Client takes care of pagination.
+
+
+Database Handling
+=================
+
+Approach A,
+	1. Specify the sql's to be executed in the xml
+	2. Execute the query by reading from xml
+	3. Return the result.
+	
+	DBManager has following methods
+		a. insertObject()
+		b. updateObject()
+		c. deleteObject()
+		d. createObject()
+		e. fetchObjects()
+		
+
+Approach B.
+	1. Use hibernate directly for executing the queries.
+	
+
+
+
+
+

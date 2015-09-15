@@ -1,0 +1,8 @@
+For supporting particular language country, need to do the following.
+
+1. Create a properites file with in the specified language.Use the language tools available. Save the file as txt in UTF-8 encoding
+2. Convert the properties file thus created using the jdk tool native2ascii.exe. User 'UTF-8' encoding.
+	ex: native2ascii -encoding UTF-8 <input_file> <output_file>
+
+4. Now use the output file as the actual properties file.Rename this file to specify the approprate language
+	ex: ApplicationResources_zh.properties

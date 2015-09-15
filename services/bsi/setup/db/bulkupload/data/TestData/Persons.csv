@@ -1,0 +1,3 @@
+PERSON_ID,name,address,oacNumber,isOACAuthenticated,phoneNumber,countryCode,email,password,personType,isActive,website,desciption,description
+4,NmsBuyer1,NmsBuyer1 Address,22222,Y,23232323,91,NmsBuyer1@bsi.com,test,B,Y,http://buyer.com,,
+3,NmsSupplier1,NmsSupplier1 Address,232323,Y,3333333,91,NmsSupplier1@bsi.com,test,S,Y,http://supplier.com,,

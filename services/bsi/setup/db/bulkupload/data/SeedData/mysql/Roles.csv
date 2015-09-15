@@ -1,0 +1,17 @@
+ROLE_ID,ROLENAME,DESCRIPTION
+1,CreateBuyer,Create a buyer
+2,EditProfile,Edit user profile
+3,ChangePasswd,Change user password
+4,ViewAllBuyers,View all buyers in the system
+5,ViewAllSuppliers,View all suppliers in the system
+6,ViewServices,Browse the services available
+7,BuyerSubscribe,Place request for a service
+8,SupplierSubscribe,Place offer for a service
+9,EditBuyerSubscribe,Edit buyer subscribed service
+10,EditSupplierSubscribe,Edit supplier subscribed service
+11,ViewMatchingBuyers,View matching buyers for a service
+12,ViewMatchingSuppliers,View matching suppliers for a service
+13,DeleteBuyer,Deletes a buyer
+14,GlobalAdministration,Adminstration of global users
+15,CreateToken,Create token
+16,DeleteSupplier,Deletes a supplier

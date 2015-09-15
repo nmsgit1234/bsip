@@ -1,0 +1,4 @@
+## For deleting a service
+###########################
+delete FROM service_properties where node_id=?;
+delete FROM services where node_id=?;

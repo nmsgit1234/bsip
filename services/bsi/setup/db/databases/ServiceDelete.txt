@@ -1,0 +1,2 @@
+delete from service_properties where node_id=;
+delete from services where node_id=;

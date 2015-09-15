@@ -1,0 +1,216 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.bsi.common.beans.Service" table="Services">
+		<id name="nodeId" column="NODE_ID">
+			<generator class="native" />
+		</id>
+		<property name="prntNodeId" type="long" />
+		<property name="name" not-null="true" />
+		<property name="description" />
+		<set name="properties" table="SERVICE_PROPERTIES" cascade="all">
+			<key column="NODE_ID" />
+			<many-to-many column="PROPERTY_ID" class="com.bsi.common.beans.Property" />
+		</set>
+		<set name="persons" table="PERSON_SERVICES" inverse="true"
+			cascade="all">
+			<key column="NODE_ID" />
+			<many-to-many column="PERSON_ID" class="com.bsi.common.beans.Person" />
+		</set>
+	</class>
+	<class name="com.bsi.common.beans.SupplierSrvsRegion" table="SUPPLIER_SERVICE_REGION">
+		<id name="ssrId" column="SSR_ID">
+			<generator class="native" />
+		</id>
+		<natural-id mutable="true">
+			<property name="supplierId" type="long" />
+			<property name="serviceId" type="long" />
+			<many-to-one name="region" column="REGION_ID"
+				class="com.bsi.common.beans.Region" />
+		</natural-id>
+		<set name="ssrPropValues" table="SUPPLIER_SERVICE_PROPERTY_VALUES"
+			cascade="all,delete-orphan">
+			<key column="id" />
+			<composite-element class="com.bsi.common.beans.SupplierServicePropertyValues">
+				<property name="property_id" type="string"/>
+				<property name="property_value" type="string" />
+			</composite-element>
+		</set>
+
+	</class>
+	
+	<class name="com.bsi.common.beans.AdminServiceRegion" table="ADMIN_SERVICE_REGION">
+		<id name="ssrId" column="ASR_ID">
+			<generator class="native" />
+		</id>
+		<natural-id mutable="true">
+			<property name="adminId" type="long" />
+			<property name="serviceId" type="long" />
+			<many-to-one name="region" column="REGION_ID"
+				class="com.bsi.common.beans.Region" />
+		</natural-id>
+		<property name="status" />
+	</class>
+
+	<class name="com.bsi.common.beans.BuyerSrvsRegion" table="BUYER_SERVICE_REGION">
+		<id name="bsrId" column="BSR_ID">
+			<generator class="native" />
+		</id>
+		<property name="buyerId" type="long" />
+		<property name="serviceId" type="long" />
+		<many-to-one name="region" column="REGION_ID"
+			class="com.bsi.common.beans.Region" />
+		<map name="bsrPropValues" table="BUYER_SERVICE_PROPERTY_VALUES"
+			cascade="all,delete-orphan">
+			<key column="id" />
+			<map-key column="property_id" type="string" />
+			<element column="property_value" type="string" />
+		</map>
+	</class>
+	<class name="com.bsi.common.beans.Property" table="PROPERTY">
+		<id name="propertyId" column="PROPERTY_ID">
+			<generator class="native" />
+		</id>
+		<property name="name" not-null="true" />
+		<property name="description" />
+		<property name="isMandatory" column="IS_MANDATORY" />
+		<property name="displayType" column="DISPLAY_TYPE" />
+		<property name="valueType" column="VALUE_TYPE" />
+		<property name="tokenId" column="TOKEN_ID" />
+		<property name="displaySize" column="DISPLAY_SIZE" />
+		<property name="dataSize" column="DATA_SIZE" />
+	</class>
+	<class name="com.bsi.common.beans.Token" table="TOKENS">
+		<id name="tokenId" column="TOKEN_ID">
+			<generator class="native" />
+		</id>
+		<property name="tokenName" column="TOKEN_NAME" />
+		<property name="tokenDesc" column="TOKEN_DESC" />
+		<set name="tokenValues" table="TOKEN_VALUES" cascade="all" lazy="false">
+			<key column="id" />
+			<element column="token_value" type="string" />
+		</set>
+	</class>
+
+	<!-- <class name="com.bsi.common.beans.TokenTest" table="TOKENS_TEST"> <id 
+		name="tokenId" column="TOKEN_ID"> <generator class="native"/> </id> <property 
+		name="tokenName" unique="true" not-null="true" column="TOKEN_NAME"/> <property 
+		name="tokenDesc" column="TOKEN_DESC"/> <set name="tokenValues" table="TOKEN_VALUES_TEST" 
+		cascade="all" lazy="false"> <key column="id"/> <element column="token_value" 
+		type="string"/> </set> </class> -->
+	<class name="com.bsi.common.beans.Group" table="GROUPS">
+		<id name="groupID" column="GROUP_ID">
+			<generator class="native" />
+		</id>
+		<property name="name" column="name" />
+		<set name="roles" table="GROUP_ROLES" lazy="false">
+			<key column="GROUP_ID" />
+			<many-to-many column="ROLE_ID" class="com.bsi.common.beans.Role" />
+		</set>
+
+		<set name="persons" table="USER_GROUPS" inverse="true">
+			<key column="GROUP_ID" />
+			<many-to-many column="PERSON_ID" class="com.bsi.common.beans.Person" />
+		</set>
+	</class>
+
+	<class name="com.bsi.common.beans.Role" table="ROLES">
+		<id name="roleID" column="ROLE_ID">
+			<generator class="native" />
+		</id>
+		<property name="name" column="NAME" />
+		<property name="description" column="DESCRIPTION" />
+	</class>
+
+	<class name="com.bsi.common.beans.Person" table="Persons">
+		<id name="id" column="PERSON_ID">
+			<generator class="native" />
+		</id>
+		<property name="name" />
+		<property name="address" />
+		<property name="oacNumber" />
+		<property name="isOACAuthenticated">
+			<column name="isOACAuthenticated" default="'N'" />
+		</property>
+
+		<properties name="PersonUnique" insert="true" update="true"
+			unique="true">
+			<property name="phoneNumber" not-null="true" />
+			<property name="countryCode" not-null="true" />
+			<property name="email" not-null="true" />
+		</properties>
+
+		<property name="password" />
+		<property name="personType" />
+		<property name="isActive">
+			<column name="isActive" default="'Y'" />
+		</property>
+		<property name="website" />
+		<property name="description" />
+
+		<set name="groups" table="USER_GROUPS">
+			<key column="PERSON_ID" />
+			<many-to-many column="GROUP_ID" class="com.bsi.common.beans.Group" />
+		</set>
+		<set name="requestedSevices" table="BUYER_SUBSCRIBED_SERVICES">
+			<key column="PERSON_ID" />
+			<many-to-many column="NODE_ID" class="com.bsi.common.beans.Service" />
+		</set>
+		<set name="offeredServices" table="SUPPLIER_SUBSCRIBED_SERVICES">
+			<key column="PERSON_ID" />
+			<many-to-many column="NODE_ID" class="com.bsi.common.beans.Service" />
+		</set>
+		<set name="administeredServices" table="ADMIN_SUBSCRIBED_SERVICES">
+			<key column="PERSON_ID" />
+			<many-to-many column="NODE_ID" class="com.bsi.common.beans.Service" />
+		</set>
+
+	</class>
+
+	<class name="com.bsi.common.beans.Region" table="Regions">
+		<id name="regionId" column="REGION_ID">
+			<generator class="increment" />
+		</id>
+		<property name="name" not-null="true" />
+		<property name="areaCode" type="long">
+			<column name="AREACODE" default="0" />
+		</property>
+		<property name="isRoot" type="character">
+			<column name="IS_ROOT" default="'n'" />
+		</property>
+		<property name="hasChild" type="character">
+			<column name="HAS_CHILD" default="'n'" />
+		</property>
+		<many-to-one name="parentRegion" class="com.bsi.common.beans.Region">
+			<column name="prnt_region_id" />
+		</many-to-one>
+	</class>
+
+	<!-- TEST -->
+<!-- 	<class name="com.bsi.common.beans.PersonServicesNew" table="PERSON_SERVICES_NEW">
+		<id name="psrId" type="int" column="PSR_ID">
+			<generator class="native" />
+		</id>
+		<natural-id mutable="true">
+			<property name="personId" type="long" />
+			<property name="serviceId" type="long" />
+		</natural-id>
+		<set name="psrPropValues" table="PERSON_SERVICE_PROPERTY_VALUES_NEW"
+			lazy="true">
+			<key column="id" />
+			<composite-element class="com.bsi.common.beans.PersonPropertyValueNew">
+				<property name="property_id" type="string"/>
+				<property name="property_value" type="string" />
+			</composite-element>
+		</set>
+	</class> -->
+
+	<!-- class name="com.bsi.common.beans.Category"> <id name="id" column="CATEGORY_ID"> 
+		<generator class="native"/> </id> <property name="name" not-null="true"/> 
+		<bag name="items" table="CATEGORY_ITEM"> <key column="CATEGORY_ID"/> <many-to-many 
+		class="com.bsi.common.beans.Item" column="ITEM_ID"/> </bag> </class> <class 
+		name="com.bsi.common.beans.Item"> <id name="id" column="ITEM_ID"> <generator 
+		class="native"/> </id> <property name="name" not-null="true"/> </class -->
+</hibernate-mapping>	

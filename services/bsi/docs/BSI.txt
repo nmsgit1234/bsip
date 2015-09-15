@@ -1,0 +1,102 @@
+Objectives
+==========
+The proposed application will help in introducing the buyers to the supplier.
+
+Using this application user will be able to do the following
+1. Suppplier will submit request that they will be supplying such and such product
+2. Buyers will send the request that they are interested in buying a specific product.
+3.1. Application will forward the buyer information to the supplier.
+3.2. Supplier will login into the application to see the buyer request.
+4. Supplier will contact the buyer through any media like email,fax,phone and bargain on the price.
+5. Buyer gets a good deal on the product.
+
+
+Application development phases
+==============================
+1.Module for supplier to register with BSI system.
+2.Module for buyer to submit the request.
+3.Module for finding out the areas within certain radius.
+4.Module for the product listing and product search.
+5.Module for Supplier to login to the application and see the requests.
+6.
+
+
+Interfaces required.
+===================
+Authentication
+Product and services that buyer can register
+
+
+
+
+Users in the system.
+===================
+Buyer
+Supplier
+Administrator
+
+
+Privileges
+==========
+
+
+
+
+
+
+
+
+Module 1. Supplier registering with the application
+===================================================
+1. Supplier enters following information.
+	Name
+	Address
+	contact person
+	email
+	Fax
+	How want to be intimated
+	Products willing to supply
+	Areas willing to supply
+	Want to display the info to buyer.
+	
+
+2. Supplier clicks on the submit button
+
+
+
+Module 2. Buyer request for a product/service
+=============================================
+1. Buyer enters following information.
+	Name
+	Address
+	email
+	Fax
+	How want to be intimated
+	Products willing to buy
+	Peferred supplier from the areas	
+	
+
+2. Supplier clicks on the submit button
+
+
+
+
+Points to be considered while doing development.
+===============================================
+1. Before performing any activity check for the previlege of the user.
+2. One piece of application should do one activity at a time.
+3. Provision to switch on and off the buyer and supplier authentication.
+4. Generalized application so that the modules can be used in different applications.
+5. Some details can be made mandatory or optional. The fields should be flexible enough.
+
+
+
+
+
+
+
+
+
+
+
+
